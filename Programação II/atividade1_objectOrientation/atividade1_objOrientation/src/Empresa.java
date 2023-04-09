@@ -12,6 +12,7 @@ public class Empresa {
     }
 
     public void info(){
+
         System.out.printf("====================================================================================%n");
         System.out.printf("Dados da empresa:" + this.nomeEmpresa + "%n");
         System.out.printf("CNPJ:" + this.CNPJ + "%n");

@@ -14,5 +14,17 @@ public class Livro {
 
     }
 
+    public void info(){
+
+        System.out.printf("====================================================================================%n");
+        System.out.printf("Titulo do Livro:" + this.titulo + "%n");
+        System.out.printf("ISBN:" + this.ISBN + "%n");
+        System.out.printf("Autores:" + this.autores + "%n");
+        System.out.printf("Editora:" + this.editora + "%n");
+        System.out.printf("Estoque:" + this.estoque + "%n");
+        System.out.printf("Valor:" + this.valor + " reais" + "%n");
+
+    }
+
 
 }
