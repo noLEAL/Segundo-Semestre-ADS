@@ -1,4 +1,6 @@
+import java.util.Random;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Main {
 
@@ -6,9 +8,28 @@ public class Main {
 
         Scanner key = new Scanner(System.in);
 
-        int escolha, test;
+        int escolha, test, preTest;
 
         test = 5;
+
+        System.out.println("Escolha uma da opções:");
+        System.out.println("[0] Para testar ou [1] para avaliar ");
+
+        preTest = key.nextInt();
+
+        if(preTest == 0){
+
+            System.out.println("Modo Teste Vetor definido para 5 possições");
+            test = 5;
+
+        }else {
+
+            System.out.println("Modo avaliação vetor definido para 10.000 possições");
+            test = 10000;
+
+        }
+
+
 
         int vetorMain[] = new int[test];
 
@@ -17,15 +38,16 @@ public class Main {
             System.out.println("=====================================================================================================");
 
             System.out.println("Escolha uma da opções:");
-            System.out.println("(1)Criar o vetor vazio ou \"zerar o vetor\""); //ok
-            System.out.println("(2)inserir um valor no vetor - utilizando uma estratégia para que o próximo elemento vazio receba este novo valor"); //ok
-            System.out.println("(3)apagar um valor do vetor - indicando o valor e procurar qual o elemento que deverá ser \"zerado\"");
-            System.out.println("(4)consultar se existe determinado valor no vetor - para saber qual o elemento que contém esse valor");
-            System.out.println("(5)consultar quantos valores significativos já ocupam o vetor");
-            System.out.println("(6)consultar qual o maior valor armazenado no vetor e indicar qual o elemento que contém esse valor");
-            System.out.println("(7)consultar qual o menor valor armazenado no vetor e indicar qual o elemento que contém esse valor");
-            System.out.println("(8)apresentar uma listagem dos valores armazenados no vetor"); // ok
-            System.out.println("(0)sair do programa"); // ok
+            System.out.println("(1)Criar o vetor vazio ou \"zerar o vetor\""); //OK
+            System.out.println("(2)inserir um valor no vetor - utilizando uma estratégia para que o próximo elemento vazio receba este novo valor"); //OK
+            System.out.println("(3)apagar um valor do vetor - indicando o valor e procurar qual o elemento que deverá ser \"zerado\""); //OK
+            System.out.println("(4)consultar se existe determinado valor no vetor - para saber qual o elemento que contém esse valor"); //OK
+            System.out.println("(5)consultar quantos valores significativos já ocupam o vetor"); //OK
+            System.out.println("(6)consultar qual o maior valor armazenado no vetor e indicar qual o elemento que contém esse valor"); //OK
+            System.out.println("(7)consultar qual o menor valor armazenado no vetor e indicar qual o elemento que contém esse valor"); //OK
+            System.out.println("(8)apresentar uma listagem dos valores armazenados no vetor");//OK
+            System.out.println("(9)inserir conteúdo no vetor a partir da geração de valores aleatórios já ordenados");
+            System.out.println("(0)sair do programa"); //OK
 
             escolha = key.nextInt();
 
@@ -62,6 +84,10 @@ public class Main {
             }else if(escolha == 8) {
 
                 Operacao8(vetorMain);
+
+            }else if(escolha == 9){
+
+                Operacao9(vetorMain);
 
             }else if (escolha == 0) {
 
@@ -242,6 +268,36 @@ public class Main {
 
         }
 
+    }
+
+    public static int [] Operacao9(int vetor9[]) {
+
+        int numR,pontoDePartida;
+        Random
+                numR = new Random();
+        pontoDePartida = 0;
+
+        while(pontoDePartida < vetor9.length){
+
+            int numR = rand.nextInt(10000);
+            boolean repetido = false;
+            for (int i = 0; i < vetor9.length; i++){
+                if (vetor9[i] == numR) {
+                    repetido = true;
+                    break;
+                }
+            }
+            if (!repetido) {
+                vetor9[vetor9.length] = numR;
+                vetor9.length++;
+            }
+
+
+        }
+
+        Arrays.sort(vetor9);
+
+        return vetor9;
     }
 
 
