@@ -93,6 +93,8 @@ public class Main {
 
             }else if (escolha == 10){
 
+                System.out.print("Sistema Finalizado! Bye Bye");
+
                 Operacao10(vetorMain);
 
             }else if (escolha == 0) {
@@ -300,7 +302,13 @@ public class Main {
         return vetor9;
     }
 
+    private static int busca(int[] vetorbusca, int chave) {
+        return Operacao10(array, 0, array.length - 1, chave);
+    }
+
     public static int [] Operacao10(int vetor10[]) {
+
+
 
         int maior, menor,meio;
 
