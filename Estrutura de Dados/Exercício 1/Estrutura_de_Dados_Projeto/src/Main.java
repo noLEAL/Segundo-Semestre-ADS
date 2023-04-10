@@ -272,26 +272,14 @@ public class Main {
 
     public static int [] Operacao9(int vetor9[]) {
 
-        int numR,pontoDePartida;
-        Random
-                numR = new Random();
-        pontoDePartida = 0;
+        int numR;
+        Random random = new Random();
 
-        while(pontoDePartida < vetor9.length){
+        for(int i = 0; i < vetor9.length; i++){
 
-            int numR = rand.nextInt(10000);
-            boolean repetido = false;
-            for (int i = 0; i < vetor9.length; i++){
-                if (vetor9[i] == numR) {
-                    repetido = true;
-                    break;
-                }
-            }
-            if (!repetido) {
-                vetor9[vetor9.length] = numR;
-                vetor9.length++;
-            }
+            numR = random.nextInt(1000);
 
+            vetor9[i] = numR;
 
         }
 
