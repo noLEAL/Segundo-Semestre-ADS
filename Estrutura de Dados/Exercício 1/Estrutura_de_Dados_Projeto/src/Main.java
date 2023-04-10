@@ -51,6 +51,7 @@ public class Main {
 
             escolha = key.nextInt();
 
+
             if (escolha == 1) {
 
                 System.out.println("Opção escolhida 1");
@@ -300,10 +301,25 @@ public class Main {
 
     public static int [] Operacao10(int vetor10[]) {
 
+        int maior, menor;
+
+        menor = vetor10[0];
+        
+        int media = (maior + menor) / 2;
+        int valorMeio = vetor10[media];
+
+        if (menor > maior)
+            return -1;
+        else if (valorMeio == chave)
+            return media;
+        else if (valorMeio < chave)
+            return Operacao10(vetor10, media + 1, maior, chave);
+        else
+            return Operacao10(vetor10, menor, media - 1, chave);
 
 
-
-
+        }
+        return vetor10;
     }
 
 
