@@ -47,6 +47,7 @@ public class Main {
             System.out.println("(7)consultar qual o menor valor armazenado no vetor e indicar qual o elemento que contém esse valor"); //OK
             System.out.println("(8)apresentar uma listagem dos valores armazenados no vetor");//OK
             System.out.println("(9)inserir conteúdo no vetor a partir da geração de valores aleatórios já ordenados");
+            System.out.println("(10)mais uma funcionalidade de consulta, que utilize busca binária implementada com recursividade.");
             System.out.println("(0)sair do programa"); //OK
 
             escolha = key.nextInt();
@@ -301,21 +302,26 @@ public class Main {
 
     public static int [] Operacao10(int vetor10[]) {
 
-        int maior, menor;
+        int maior, menor,meio;
 
         menor = vetor10[0];
-        
+        maior = vetor10[vetor10.length-1];
+        meio = menor+maior
+
+        System.out.println(menor);
+        System.out.println(maior);
+
         int media = (maior + menor) / 2;
         int valorMeio = vetor10[media];
 
         if (menor > maior)
             return -1;
-        else if (valorMeio == chave)
+        else if (valorMeio == meio)
             return media;
         else if (valorMeio < chave)
-            return Operacao10(vetor10, media + 1, maior, chave);
+            return Operacao10(vetor10, meio + 1, maior, chave);
         else
-            return Operacao10(vetor10, menor, media - 1, chave);
+            return Operacao10(vetor10, menor, meio - 1, chave);
 
 
         }
