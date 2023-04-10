@@ -89,6 +89,10 @@ public class Main {
 
                 Operacao9(vetorMain);
 
+            }else if (escolha == 10){
+
+                Operacao10(vetorMain);
+
             }else if (escolha == 0) {
 
                 System.out.print("Sistema Finalizado! Bye Bye");
@@ -272,20 +276,34 @@ public class Main {
 
     public static int [] Operacao9(int vetor9[]) {
 
-        int numR;
+        int numR, aux;
         Random random = new Random();
+
+        aux = 0;
 
         for(int i = 0; i < vetor9.length; i++){
 
-            numR = random.nextInt(1000);
+            numR = random.nextInt(100);
 
-            vetor9[i] = numR;
+            if (numR != 0){
+
+                aux += numR;
+
+            }
+
+            vetor9[i] = aux;
 
         }
 
-        Arrays.sort(vetor9);
-
         return vetor9;
+    }
+
+    public static int [] Operacao10(int vetor10[]) {
+
+
+
+
+
     }
 
 
