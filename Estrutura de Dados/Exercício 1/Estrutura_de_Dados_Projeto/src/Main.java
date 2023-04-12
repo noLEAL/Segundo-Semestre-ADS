@@ -46,8 +46,8 @@ public class Main {
             System.out.println("(6)consultar qual o maior valor armazenado no vetor e indicar qual o elemento que contém esse valor"); //OK
             System.out.println("(7)consultar qual o menor valor armazenado no vetor e indicar qual o elemento que contém esse valor"); //OK
             System.out.println("(8)apresentar uma listagem dos valores armazenados no vetor");//OK
-            System.out.println("(9)inserir conteúdo no vetor a partir da geração de valores aleatórios já ordenados");
-            System.out.println("(10)mais uma funcionalidade de consulta, que utilize busca binária implementada com recursividade.");
+            System.out.println("(9)inserir conteúdo no vetor a partir da geração de valores aleatórios já ordenados"); //OK
+            System.out.println("(10)mais uma funcionalidade de consulta, que utilize busca binária implementada com recursividade."); //OK
             System.out.println("(0)sair do programa"); //OK
 
             escolha = key.nextInt();
@@ -93,9 +93,18 @@ public class Main {
 
             }else if (escolha == 10){
 
-                System.out.print("Sistema Finalizado! Bye Bye");
+                int chave,resultado;
 
-                Operacao10(vetorMain);
+                System.out.print("Digite o numero que deseja buscar:");
+                chave = key.nextInt();
+
+                resultado = Operacao10(vetorMain,chave,0,vetorMain.length-1);
+
+                if (resultado == -1) {
+                    System.out.println("Elemento não encontrado");
+                } else {
+                    System.out.println("Elemento encontrado no índice " + resultado);
+                }
 
             }else if (escolha == 0) {
 
@@ -206,8 +215,6 @@ public class Main {
 
     }
 
-
-
     public static void Operacao5(int vetor5[]) {
         //consultar quantos valores significativos já ocupam o vetor
 
@@ -228,8 +235,6 @@ public class Main {
 
     }
 
-
-
     public static void Operacao6(int vetor6[]) {
         //consultar qual o maior valor armazenado no vetor e indicar qual o elemento que contém esse valor
 
@@ -247,9 +252,6 @@ public class Main {
 
     }
 
-
-
-
     public static void Operacao7(int vetor7[]) {
 
         int menor,flag;
@@ -265,8 +267,6 @@ public class Main {
         System.out.printf("menor número é %d, no índice %d%n8", menor, flag);
 
     }
-
-
 
     public static void Operacao8(int vetor8[]) {
 
@@ -289,51 +289,36 @@ public class Main {
 
             numR = random.nextInt(100);
 
+
             if (numR != 0){
 
                 aux += numR;
 
             }
 
-            vetor9[i] = aux;
+            vetor9[i] = aux+1;
 
         }
 
         return vetor9;
     }
 
-    private static int busca(int[] vetorbusca, int chave) {
-        return Operacao10(array, 0, array.length - 1, chave);
-    }
+    public static int  Operacao10(int vetor10[], int chave, int esquerda,int direita) {
 
-    public static int [] Operacao10(int vetor10[]) {
-
-
-
-        int maior, menor,meio;
-
-        menor = vetor10[0];
-        maior = vetor10[vetor10.length-1];
-        meio = menor+maior
-
-        System.out.println(menor);
-        System.out.println(maior);
-
-        int media = (maior + menor) / 2;
-        int valorMeio = vetor10[media];
-
-        if (menor > maior)
+        if (esquerda > direita) {
             return -1;
-        else if (valorMeio == meio)
-            return media;
-        else if (valorMeio < chave)
-            return Operacao10(vetor10, meio + 1, maior, chave);
-        else
-            return Operacao10(vetor10, menor, meio - 1, chave);
-
-
         }
-        return vetor10;
+
+        int meio = (esquerda + direita) / 2;
+
+        if (vetor10[meio] == chave) {
+            return meio;
+        } else if (chave < vetor10[meio]) {
+            return Operacao10(vetor10, chave, esquerda, meio - 1);
+        } else {
+            return Operacao10(vetor10, chave, meio + 1, direita);
+        }
+
     }
 
 
