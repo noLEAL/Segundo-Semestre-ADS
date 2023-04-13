@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class Main {
-
+    public static int cont = 0;
     public static void main(String[] args) {
 
         Scanner key = new Scanner(System.in);
@@ -12,11 +12,12 @@ public class Main {
 
         test = 5;
 
+        System.out.println("=".repeat(100));
         System.out.println("Escolha uma da opções:");
         System.out.println("[0] Para testar ou [1] para avaliar ");
 
         preTest = key.nextInt();
-
+        System.out.println("=".repeat(100));
         if(preTest == 0){
 
             System.out.println("Modo Teste Vetor definido para 5 possições");
@@ -35,7 +36,7 @@ public class Main {
 
         while(true) {
 
-            System.out.println("=====================================================================================================");
+            System.out.println("=".repeat(100));
 
             System.out.println("Escolha uma da opções:");
             System.out.println("(1)Criar o vetor vazio ou \"zerar o vetor\""); //OK
@@ -49,6 +50,8 @@ public class Main {
             System.out.println("(9)inserir conteúdo no vetor a partir da geração de valores aleatórios já ordenados"); //OK
             System.out.println("(10)mais uma funcionalidade de consulta, que utilize busca binária implementada com recursividade."); //OK
             System.out.println("(0)sair do programa"); //OK
+
+            System.out.println("=".repeat(100));
 
             escolha = key.nextInt();
 
@@ -93,18 +96,35 @@ public class Main {
 
             }else if (escolha == 10){
 
-                int chave,resultado;
+                int chave,resultado,resultado2;
+
+
 
                 System.out.print("Digite o numero que deseja buscar:");
                 chave = key.nextInt();
 
+                resultado2 = Operacao10_1(vetorMain,chave);
+
+                if (resultado2 == -1) {
+                    int gambiarra = 0;
+                    gambiarra = vetorMain.length-1;
+                    System.out.println("Elemento não encontrado:");
+                    System.out.println("Número de chamadas sequencial:" + gambiarra);
+                } else {
+                    System.out.println("Numero encontrado no indice:" + resultado2);
+                    System.out.println("Número de chamadas sequencial: " + resultado2);
+                }
+
                 resultado = Operacao10(vetorMain,chave,0,vetorMain.length-1);
 
                 if (resultado == -1) {
-                    System.out.println("Elemento não encontrado");
+                    System.out.println("Elemento não encontrado:");
+                    System.out.println("Número de chamadas recursiva: " + cont);
                 } else {
-                    System.out.println("Elemento encontrado no índice " + resultado);
+                    System.out.println("Elemento encontrado no índice: " + resultado);
+                    System.out.println("Número de chamadas recursiva: " + cont);
                 }
+
 
             }else if (escolha == 0) {
 
@@ -218,8 +238,7 @@ public class Main {
     public static void Operacao5(int vetor5[]) {
         //consultar quantos valores significativos já ocupam o vetor
 
-        int flag;
-        flag = 0;
+        int flag = 0;
 
         for(int i = 0; i < vetor5.length; i++) {
 
@@ -305,6 +324,8 @@ public class Main {
 
     public static int  Operacao10(int vetor10[], int chave, int esquerda,int direita) {
 
+        cont++;
+
         if (esquerda > direita) {
             return -1;
         }
@@ -319,6 +340,22 @@ public class Main {
             return Operacao10(vetor10, chave, meio + 1, direita);
         }
 
+    }
+    public static int  Operacao10_1(int vetor10[], int chave) {
+
+        int indice = 0;
+
+        for (int i = 0; i < vetor10.length-1 ; i++) {
+
+            if (vetor10[i] == chave){
+
+                indice = i;
+
+                return indice;
+
+            }
+        }
+        return -1;
     }
 
 
