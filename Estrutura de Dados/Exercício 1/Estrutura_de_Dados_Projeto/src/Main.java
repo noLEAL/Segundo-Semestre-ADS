@@ -21,7 +21,7 @@ public class Main {
         if(preTest == 0){
 
             System.out.println("Modo Teste Vetor definido para 5 possições");
-            test = 5;
+            test = 10;
 
         }else {
 
