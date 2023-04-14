@@ -2,6 +2,8 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Arrays;
 
+import static java.lang.Math.addExact;
+
 public class Main {
     public static int cont = 0;
     public static void main(String[] args) {
@@ -20,7 +22,7 @@ public class Main {
         System.out.println("=".repeat(100));
         if(preTest == 0){
 
-            System.out.println("Modo Teste Vetor definido para 5 possições");
+            System.out.println("Modo Teste Vetor definido para 10 possições");
             test = 10;
 
         }else {
@@ -49,6 +51,10 @@ public class Main {
             System.out.println("(8)apresentar uma listagem dos valores armazenados no vetor");//OK
             System.out.println("(9)inserir conteúdo no vetor a partir da geração de valores aleatórios já ordenados"); //OK
             System.out.println("(10)mais uma funcionalidade de consulta, que utilize busca binária implementada com recursividade."); //OK
+            System.out.println("(11)inserir conteúdo no vetor a partir da geração de valores aleatórios NÃO ORDENADOS"); //OK
+            System.out.println("(12)verificação para permitir usar as buscas somente se o vetor já tiver sido ordenado"); //OK
+            System.out.println("(13)"); //OK
+
             System.out.println("(0)sair do programa"); //OK
 
             System.out.println("=".repeat(100));
@@ -125,6 +131,33 @@ public class Main {
                     System.out.println("Número de chamadas recursiva: " + cont);
                 }
 
+
+            }else if(escolha == 11){
+
+                Operacao11(vetorMain);
+
+            }else if(escolha == 12){
+
+                Operacao12(vetorMain);
+
+            }else if (escolha == 13){
+
+                Operacao13(vetorMain);
+
+            }else if(escolha == 14){
+
+                Operacao14(vetorMain);
+
+            }else if(escolha == 15){
+
+                Operacao15(vetorMain);
+
+            }else if(escolha == 16){
+
+                int esquerda = vetorMain[0];
+                int direita = vetorMain.length-1;
+
+                Operacao16(vetorMain, esquerda, direita );
 
             }else if (escolha == 0) {
 
@@ -297,7 +330,7 @@ public class Main {
 
     }
 
-    public static int [] Operacao9(int vetor9[]) {
+    public static int[] Operacao9(int vetor9[]) {
 
         int numR, aux;
         Random random = new Random();
@@ -341,6 +374,7 @@ public class Main {
         }
 
     }
+
     public static int  Operacao10_1(int vetor10[], int chave) {
 
         int indice = 0;
@@ -356,6 +390,152 @@ public class Main {
             }
         }
         return -1;
+    }
+
+    public static int[] Operacao11(int vetor11[]) {
+
+        int numR, aux;
+        Random random = new Random();
+
+        aux = 0;
+
+        for(int i = 0; i < vetor11.length; i++){
+
+            aux++;
+            numR = random.nextInt(100);
+
+            if(numR == 0 ){
+
+                vetor11[i] = addExact(aux,aux-1); //soma inteiro
+
+            }else {
+
+                vetor11[i] = numR;
+            }
+
+        }
+
+        return vetor11;
+    }
+
+    public static void Operacao12(int vetor12[]){
+
+        int desordenado = 0;
+
+        for (int i = 0; i < vetor12.length-1; i++) {
+
+            if (vetor12 [i] > vetor12[i+1]){
+
+                desordenado++;
+
+            }
+
+        }
+
+        if (desordenado != 0 ){
+
+            System.out.println("Vetor se encontra desordenado");
+
+        }else {
+
+            System.out.println("Vetor se encontra Ordenado");
+
+        }
+
+
+    }
+
+    public static int[] Operacao13(int vetor13[]){
+
+        boolean troca;
+        int count = 0;
+        for (int i = 0; i < vetor13.length-1; i++) {
+            troca = false;
+            for (int j = 0; j < vetor13.length-1 - i - 1; j++) {
+                if (vetor13[j] > vetor13[j + 1]) {
+                    int aux = vetor13[j];
+                    vetor13[j] = vetor13[j + 1];  //momento que inverte com a ajuda da aux
+                    vetor13[j + 1] = aux;           //momento que inverte com a ajuda da aux
+                    troca = true;
+                    count++;
+                }
+            }
+            if (!troca) {
+                break;
+            }
+        }
+
+        System.out.println("Número de trocas: " + count);
+
+        return vetor13;
+    }
+
+    public static int[] Operacao14(int vetor14[]){
+        int count = 0;
+        for (int i = 0; i < vetor14.length - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < vetor14.length; j++) {
+                if (vetor14[j] < vetor14[min]) {
+                    min = j;
+                }
+            }
+            int aux = vetor14[min];
+            vetor14[min] = vetor14[i];
+            vetor14[i] = aux;
+        }
+        System.out.println("Número de trocas: " + count);
+        return vetor14;
+    }
+
+    public static int[] Operacao15(int vetor15[]){
+        int count = 0;
+        for (int i = 1; i < vetor15.length; i++) {
+            int aux = vetor15[i];
+            int j = i - 1;
+            while (j >= 0 && vetor15[j] > aux) {
+                vetor15[j + 1] = vetor15[j];
+                j--;
+            }
+            vetor15[j + 1] = aux;
+        }
+
+        System.out.println("Número de trocas: " + count);
+        return vetor15;
+    }
+
+    public static int[] Operacao16(int vetor16[], int esquerda , int direita ){
+
+        int i = esquerda;
+        int j = direita;
+        int meio = vetor16[(esquerda + direita) / 2];
+        int temp;
+        int count = 0;
+
+        while (i <= j) {
+            while (vetor16[i] < meio) {
+                i++;
+            }
+            while (vetor16[j] > meio) {
+                j--;
+            }
+            if (i <= j) {
+                temp = vetor16[i];
+                vetor16[i] = vetor16[j];
+                vetor16[j] = temp;
+                count++;
+                i++;
+                j--;
+            }
+        }
+        if (esquerda < j) {
+            Operacao16(vetor16, esquerda, j);
+        }
+        if (i < direita) {
+            Operacao16(vetor16, i, direita);
+        }
+
+        return vetor16;
+
     }
 
 
