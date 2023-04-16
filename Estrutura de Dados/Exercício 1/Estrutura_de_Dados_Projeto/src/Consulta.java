@@ -1,0 +1,11 @@
+public class Consulta {
+
+    Consulta{
+
+
+
+    }
+
+    
+
+}

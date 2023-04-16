@@ -53,125 +53,105 @@ public class Main {
             System.out.println("(10)mais uma funcionalidade de consulta, que utilize busca binária implementada com recursividade."); //OK
             System.out.println("(11)inserir conteúdo no vetor a partir da geração de valores aleatórios NÃO ORDENADOS"); //OK
             System.out.println("(12)verificação para permitir usar as buscas somente se o vetor já tiver sido ordenado"); //OK
-            System.out.println("(13)"); //OK
-
+            System.out.println("(13)Método de Orientação BubbleSort"); //OK
+            System.out.println("(14)Método de Orientação SelectionSort"); //OK
+            System.out.println("(15)Método de Orientação InsertionSort"); //OK
+            System.out.println("(16)Método de Orientação QuickSort"); //OK
             System.out.println("(0)sair do programa"); //OK
 
             System.out.println("=".repeat(100));
 
             escolha = key.nextInt();
 
+            switch (escolha){
+                case 1:
+                    System.out.println("Opção escolhida 1");
+                    Operacao1(vetorMain);
+                    break;
+                case 2:
+                    System.out.println("Opção escolhida 2");
+                    Operacao2(vetorMain);
+                    break;
+                case 3:
+                    Operacao3(vetorMain);
+                    break;
+                case 4:
+                    Operacao4(vetorMain);
+                    break;
+                case 5:
+                    Operacao5(vetorMain);
+                    break;
+                case 6:
+                    Operacao6(vetorMain);
+                    break;
+                case 7:
+                    Operacao7(vetorMain);
+                    break;
+                case 8:
+                    Operacao8(vetorMain);
+                    break;
+                case 9:
+                    Operacao9(vetorMain);
+                    break;
+                case 10:
 
-            if (escolha == 1) {
+                    int chave,resultado,resultado2;
 
-                System.out.println("Opção escolhida 1");
-                Operacao1(vetorMain);
+                    System.out.print("Digite o numero que deseja buscar:");
+                    chave = key.nextInt();
 
-            }else if(escolha == 2){
+                    resultado2 = Operacao10_1(vetorMain,chave);
 
-                System.out.println("Opção escolhida 2");
-                Operacao2(vetorMain);
+                    if (resultado2 == -1) {
+                        int gambiarra = 0;
+                        gambiarra = vetorMain.length-1;
+                        System.out.println("Elemento não encontrado:");
+                        System.out.println("Número de chamadas sequencial:" + gambiarra);
+                    } else {
+                        System.out.println("Numero encontrado no indice:" + resultado2);
+                        System.out.println("Número de chamadas sequencial: " + resultado2);
+                    }
 
-            }else if(escolha == 3) {
+                    resultado = Operacao10(vetorMain,chave,0,vetorMain.length-1);
 
-                Operacao3(vetorMain);
+                    if (resultado == -1) {
+                        System.out.println("Elemento não encontrado:");
+                        System.out.println("Número de chamadas recursiva: " + cont);
+                    } else {
+                        System.out.println("Elemento encontrado no índice: " + resultado);
+                        System.out.println("Número de chamadas recursiva: " + cont);
+                    }
+                    break;
+                case 11:
+                    Operacao11(vetorMain);
+                    break;
+                case 12:
+                    Operacao12(vetorMain);
+                    break;
+                case 13:
+                    Operacao13(vetorMain);
+                    break;
+                case 14:
+                    Operacao14(vetorMain);
+                    break;
+                case 15:
+                    Operacao15(vetorMain);
+                    break;
+                case 16:
+                    int esquerda = vetorMain[0];
+                    int direita = vetorMain.length-1;
 
-            }else if(escolha == 4) {
-
-                Operacao4(vetorMain);
-
-            }else if(escolha == 5) {
-
-                Operacao5(vetorMain);
-
-            }else if(escolha == 6) {
-
-                Operacao6(vetorMain);
-
-            }else if(escolha == 7) {
-
-                Operacao7(vetorMain);
-
-            }else if(escolha == 8) {
-
-                Operacao8(vetorMain);
-
-            }else if(escolha == 9){
-
-                Operacao9(vetorMain);
-
-            }else if (escolha == 10){
-
-                int chave,resultado,resultado2;
-
-
-
-                System.out.print("Digite o numero que deseja buscar:");
-                chave = key.nextInt();
-
-                resultado2 = Operacao10_1(vetorMain,chave);
-
-                if (resultado2 == -1) {
-                    int gambiarra = 0;
-                    gambiarra = vetorMain.length-1;
-                    System.out.println("Elemento não encontrado:");
-                    System.out.println("Número de chamadas sequencial:" + gambiarra);
-                } else {
-                    System.out.println("Numero encontrado no indice:" + resultado2);
-                    System.out.println("Número de chamadas sequencial: " + resultado2);
-                }
-
-                resultado = Operacao10(vetorMain,chave,0,vetorMain.length-1);
-
-                if (resultado == -1) {
-                    System.out.println("Elemento não encontrado:");
-                    System.out.println("Número de chamadas recursiva: " + cont);
-                } else {
-                    System.out.println("Elemento encontrado no índice: " + resultado);
-                    System.out.println("Número de chamadas recursiva: " + cont);
-                }
-
-
-            }else if(escolha == 11){
-
-                Operacao11(vetorMain);
-
-            }else if(escolha == 12){
-
-                Operacao12(vetorMain);
-
-            }else if (escolha == 13){
-
-                Operacao13(vetorMain);
-
-            }else if(escolha == 14){
-
-                Operacao14(vetorMain);
-
-            }else if(escolha == 15){
-
-                Operacao15(vetorMain);
-
-            }else if(escolha == 16){
-
-                int esquerda = vetorMain[0];
-                int direita = vetorMain.length-1;
-
-                Operacao16(vetorMain, esquerda, direita );
-
-            }else if (escolha == 0) {
-
-                System.out.print("Sistema Finalizado! Bye Bye");
-                System.exit(0);
-
-            }else {
-
-                System.out.println("Usuário burro não escolheu nenhuma das opções acima.");
-
+                    Operacao16(vetorMain, esquerda, direita );
+                    break;
+                case 0:
+                    System.out.print("Sistema Finalizado! Bye Bye");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Usuário burro não escolheu nenhuma das opções acima.");
+                    break;
             }
-
         }
-
     }
 
 
@@ -533,6 +513,8 @@ public class Main {
         if (i < direita) {
             Operacao16(vetor16, i, direita);
         }
+
+        System.out.println(count);
 
         return vetor16;
 
