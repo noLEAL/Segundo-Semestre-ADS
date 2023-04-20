@@ -1,6 +1,6 @@
 public class Empresa {
 
-    String nomeEmpresa, CNPJ, endereco, servico;
+    private String nomeEmpresa, CNPJ, endereco, servico;
 
     Empresa(String nomeEmpresa, String CNPJ, String endereco, String servico){
 
@@ -10,6 +10,8 @@ public class Empresa {
         this.servico = servico;
 
     }
+
+    public void setEndereco(String endereco){this.endereco = endereco;}
 
     public void info(){
 

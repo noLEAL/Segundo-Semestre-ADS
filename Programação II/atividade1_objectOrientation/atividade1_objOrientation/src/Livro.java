@@ -1,7 +1,7 @@
 public class Livro {
 
-    String titulo, ISBN, autores, editora;
-    int estoque, valor;
+    private String titulo, ISBN, autores, editora;
+    private int estoque, valor;
 
     Livro(String titulo, String ISBN, String autores, String editora, int estoque, int valor ){
 
@@ -11,6 +11,21 @@ public class Livro {
         this.editora = editora;
         this.estoque = estoque;
         this.valor = valor;
+
+    }
+
+    public void setValor(int valor){this.valor = valor;}
+
+    public void setEstoque(int estoque){this.estoque = estoque;}
+
+    public void incrementoEstoque(int estoque){
+
+        this.estoque = this.estoque + estoque;
+
+    }
+    public void decrementoEstoque(int estoque){
+
+        this.estoque = this.estoque - estoque;
 
     }
 

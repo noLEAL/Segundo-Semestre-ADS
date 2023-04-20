@@ -1,7 +1,7 @@
 public class Funcionario {
 
-    String nome, sobrenome, CPF, cargo, gerente;
-    double salario;
+    private String nome, sobrenome, CPF, cargo, gerente;
+    private double salario;
 
     Funcionario(String nome, String sobrenome, String CPF, String cargo, String gerente, double salario){
 
@@ -13,6 +13,10 @@ public class Funcionario {
         this.salario = salario;
 
     }
+
+    public void setSalario(double salario){this.salario = salario;}
+    public void setCargo(String cargo){this.cargo = cargo;}
+
 
     public void info(){
 

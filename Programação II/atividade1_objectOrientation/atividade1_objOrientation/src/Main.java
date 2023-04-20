@@ -17,6 +17,10 @@ public class Main {
         empresa2.info();
         empresa3.info();
 
+        empresa1.setEndereco("Rua dos Jubileu");
+
+        empresa1.info();
+
         remedio1 = new Remedio("Azzuracina", "marrom", "abbot", 300, 13);
         remedio2 = new Remedio("Marabácina", "roxa", "bayer", 75, 5);
         remedio3 = new Remedio("Azitocina", "amarela", "ems", 150, 7);
@@ -24,6 +28,13 @@ public class Main {
         remedio1.info();
         remedio2.info();
         remedio3.info();
+
+        remedio1.setValor(223);
+        remedio1.setEstoque(50);
+        remedio1.incrementaEstoque(50);
+        remedio1.decrementarEstoque(50);
+
+
 
         funcionario1 = new Funcionario("Paulinho", "Cabeça de Pedra", "125632568474", "Magico", "João", 3.213);
         funcionario2 = new Funcionario("Claudio", "Brasil", "56834962725", "Animador de Festa", "Ricardo", 2.324);
@@ -40,6 +51,11 @@ public class Main {
         livro1.info();
         livro2.info();
         livro3.info();
+
+        livro1.setValor(223);
+        livro1.setEstoque(50);
+        livro1.incrementoEstoque(50);
+        livro1.decrementoEstoque(50);
 
 
 

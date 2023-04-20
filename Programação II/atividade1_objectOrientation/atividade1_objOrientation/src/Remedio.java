@@ -1,8 +1,8 @@
 public class Remedio {
 
-    String nomeRemedio, tarja, laboratorio;
-    double valor;
-    int estoque;
+    private String nomeRemedio, tarja, laboratorio;
+    private double valor;
+    private int estoque;
 
     Remedio(String nomeRemedio, String tarja, String laboratorio, double valor, int estoque){
 
@@ -11,6 +11,23 @@ public class Remedio {
         this.laboratorio = laboratorio;
         this.valor = valor;
         this.estoque = estoque;
+
+    }
+
+    // faz com que o objeto valor receba um novo valor
+    public void setValor(double valor){this.valor = valor;}
+
+    public void setEstoque(int estoque){this.estoque = estoque;}
+
+    public void incrementaEstoque(int estoque){
+
+        this.estoque = this.estoque + estoque;
+
+    }
+
+    public void decrementarEstoque(int estoque){
+
+        this.estoque = this.estoque - estoque;
 
     }
 
