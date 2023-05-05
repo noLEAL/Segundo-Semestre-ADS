@@ -7,6 +7,14 @@ import static java.lang.Math.addExact;
 
 public class classeVetor {
 
+    int vetorInterno [];
+
+
+    classeVetor(int tam){
+        vetorInterno =  new int[tam];
+
+    }
+
     int vetorInterno[];
 
     //metodo para criar o vetor   
@@ -87,36 +95,36 @@ public class classeVetor {
         return vetor3;
     }
 
-//    public static void Operacao4(int vetor4[]) {
-//        //consultar se existe determinado valor no vetor - para saber qual o elemento que contém esse valor
-//
-//        Scanner key = new Scanner(System.in);
-//
-//        int escolha,flag;
-//
-//        flag = 0;
-//
-//        System.out.println("Digite o valor que deseja consultar:");
-//        escolha = key.nextInt();
-//
-//        for(int i = 0; i < vetor4.length; i++) {
-//
-//            if(escolha == vetor4[i]) {
-//
-//                System.out.println("Valor encontrado no elemento: " + i);
-//                flag++;
-//                break;
-//
-//            }
-//
-//        }
-//        if(flag == 0 ){
-//
-//            System.out.println("Valor não encontrado");
-//
-//        }
-//
-//    }
+    public static void Operacao4(int vetor4[]) {
+        //consultar se existe determinado valor no vetor - para saber qual o elemento que contém esse valor
+
+        Scanner key = new Scanner(System.in);
+
+        int escolha,flag;
+
+        flag = 0;
+
+        System.out.println("Digite o valor que deseja consultar:");
+        escolha = key.nextInt();
+
+        for(int i = 0; i < vetor4.length; i++) {
+
+            if(escolha == vetor4[i]) {
+
+                System.out.println("Valor encontrado no elemento: " + i);
+                flag++;
+                break;
+
+            }
+
+        }
+        if(flag == 0 ){
+
+            System.out.println("Valor não encontrado");
+
+        }
+
+    }
 
     public static void Operacao5(int vetor5[]) {
         //consultar quantos valores significativos já ocupam o vetor

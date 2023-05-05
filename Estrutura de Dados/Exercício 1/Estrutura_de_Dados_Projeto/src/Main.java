@@ -11,11 +11,9 @@ public class Main {
         Scanner key = new Scanner(System.in);
 
         int escolha;
-
+        classeVetor vetor;
 
         System.out.println("=".repeat(100));
-
-        fazTudo escolha = new fazTudo();
 
         while(true) {
 
@@ -25,13 +23,11 @@ public class Main {
             System.out.println("(1)Criar o vetor vazio ou \"zerar o vetor\""); //OK
             System.out.println("(2)inserir um valor no vetor - utilizando uma estratégia para que o próximo elemento vazio receba este novo valor"); //OK
             System.out.println("(3)apagar um valor do vetor - indicando o valor e procurar qual o elemento que deverá ser \"zerado\""); //OK
-
             System.out.println("(4)consultar se existe determinado valor no vetor - para saber qual o elemento que contém esse valor"); //OK
             System.out.println("(5)consultar quantos valores significativos já ocupam o vetor"); //OK
             System.out.println("(6)consultar qual o maior valor armazenado no vetor e indicar qual o elemento que contém esse valor"); //OK
             System.out.println("(7)consultar qual o menor valor armazenado no vetor e indicar qual o elemento que contém esse valor"); //OK
             System.out.println("(8)apresentar uma listagem dos valores armazenados no vetor");//OK
-
             System.out.println("(9)inserir conteúdo no vetor a partir da geração de valores aleatórios já ordenados"); //OK
             System.out.println("(10)mais uma funcionalidade de consulta, que utilize busca binária implementada com recursividade."); //OK
             System.out.println("(11)inserir conteúdo no vetor a partir da geração de valores aleatórios NÃO ORDENADOS"); //OK
@@ -49,7 +45,7 @@ public class Main {
             switch (escolha){
                 case 1:
                     System.out.println("Opção escolhida 1");
-                    Operacao1(vetorMain);
+                    vetor.classeVetor;
                     break;
                 case 2:
                     System.out.println("Opção escolhida 2");
@@ -135,11 +131,19 @@ public class Main {
                     break;
             }
         }
+
+        public static void Operacao8(int vetor8[]) {
+
+            for(int i = 0; i < vetor8.length; i++) {
+
+                System.out.println("O valor na possição " + i + " é de " + vetor8[i]);
+
+            }
+
+        }
+
+
+
+
     }
-
-
-
-
-
-
 }

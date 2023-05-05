@@ -12,7 +12,9 @@ Programa Classe Principal : MAIN
 
 => Método para leitura de inteiros.
 
+
 => Declaração e instanciação do objeto que contém o vetor, atribuindo valor de referência vazio a todos os elementos.
+
 
 => Menu para gerenciar as seguintes opções (no mínimo, as opções listadas. podem existir outras):
 
