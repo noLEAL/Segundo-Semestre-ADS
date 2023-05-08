@@ -27,10 +27,10 @@ public class Main {
             System.out.println("8. Apagar um valor do vetor do objeto, informando a posição do valor a ser removido.");
             System.out.println("9. Consultar a existência de um valor no vetor do objeto, utilizando busca sequencial");
             System.out.println("10. Consultar a existência de um valor no vetor do objeto, utilizando busca binária");
-            System.out.println("11. ");
-            System.out.println("12. ");
-            System.out.println("13. ");
-            System.out.println("14. ");
+            System.out.println("11. Ordenar o vetor do objeto, utilizando o método Bubblesort");
+            System.out.println("12. Ordenar o vetor do objeto, utilizando o método Insertionsort");
+            System.out.println("13. Ordenar o vetor do objeto, utilizando o método Selectionsort");
+            System.out.println("14. Ordenar o vetor do objeto, utilizando o método Quicksort");
 
             System.out.println("=".repeat(100));
 
@@ -122,7 +122,30 @@ public class Main {
                     }
 
                     break;
+                case 11:
 
+                    myObject.Bubblesort();
+
+                    break;
+                case 12:
+
+                    myObject.Insertionsort();
+
+                    break;
+                case 13:
+
+                    myObject.Selectionsort();
+
+                    break;
+                case 14:
+
+                     int[] vetortestQ;
+
+                     vetortestQ = myObject.getVetor();
+
+                     myObject.Quicksort(myObject.getVetor(),0,vetortestQ.length-1);
+
+                    break;
                 default:
 
                     System.out.println("idiota");

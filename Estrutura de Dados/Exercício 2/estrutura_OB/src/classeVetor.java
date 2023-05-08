@@ -4,6 +4,7 @@ import java.util.Random;
 public class classeVetor {
 
     int[] vetorInterno;  // definição do vetor interno
+    int esquerda,direita;
 
     classeVetor(int tam) { // metodo contrutor
 
@@ -17,26 +18,22 @@ public class classeVetor {
 
     public void preenchedor_Aleatorio() {
 
-        int numR,numR2, aux;
-        Random random = new Random();
+        Random rand = new Random();
 
-        aux = 0;
+        int tamVetor;
+
+        tamVetor = vetorInterno.length;
+
+        int[] numeros = new int[tamVetor * 10];
 
         for (int i = 0; i < vetorInterno.length; i++) {
 
-            aux++;
-            numR = random.nextInt(100);
-
-            if (numR == 0) {
-
-                vetorInterno[i] = vetorInterno[numR2 = random.nextInt(100)] + 1;
-
-            } else {
-
-                vetorInterno[i] = numR;
-
-            }
-
+            int num;
+            do {
+                num = rand.nextInt(tamVetor * 10); // Gera um número entre 0 e 10N-1
+            } while (numeros[num] != 0); // Verifica se o número já foi sorteado
+            numeros[num] = 1; // Marca o número como sorteado
+            vetorInterno[i] = num;
 
         }
     }  // OK
@@ -165,7 +162,6 @@ public class classeVetor {
 
     }
 
-
     public int busca_Binaria (int[] lista, int chave, int esquerda, int direita) {
 
 
@@ -182,6 +178,89 @@ public class classeVetor {
             return busca_Binaria(lista, chave, esquerda, meio - 1);
         } else {
             return busca_Binaria(lista, chave, meio + 1, direita);
+        }
+
+    }
+
+    public void Bubblesort(){
+
+        boolean troca;
+
+        for (int i = 0; i < vetorInterno.length-1; i++) {
+            troca = false;
+            for (int j = 0; j < vetorInterno.length-1 - i - 1; j++) {
+                if (vetorInterno[j] > vetorInterno[j + 1]) {
+                    int aux = vetorInterno[j];
+                    vetorInterno[j] = vetorInterno[j + 1];  //momento que inverte com a ajuda da aux
+                    vetorInterno[j + 1] = aux;           //momento que inverte com a ajuda da aux
+                    troca = true;
+                }
+            }
+            if (!troca) {
+                break;
+            }
+        }
+    }
+
+    public void Insertionsort(){
+
+        for (int i = 1; i < vetorInterno.length; i++) {
+            int aux = vetorInterno[i];
+            int j = i - 1;
+            while (j >= 0 && vetorInterno[j] > aux) {
+                vetorInterno[j + 1] = vetorInterno[j];
+                j--;
+            }
+            vetorInterno[j + 1] = aux;
+        }
+
+
+
+    }
+
+    public void Selectionsort(){
+
+
+        for (int i = 0; i < vetorInterno.length - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < vetorInterno.length; j++) {
+                if (vetorInterno[j] < vetorInterno[min]) {
+                    min = j;
+                }
+            }
+            int aux = vetorInterno[min];
+            vetorInterno[min] = vetorInterno[i];
+            vetorInterno[i] = aux;
+        }
+    }
+
+    public void Quicksort(int [] vetorInterno,int esquerda, int direita){
+
+        int i = esquerda;
+        int j = direita;
+        int meio = vetorInterno[(esquerda + direita) / 2];
+        int temp;
+
+        while (i <= j) {
+            while (vetorInterno[i] < meio) {
+                i++;
+            }
+            while (vetorInterno[j] > meio) {
+                j--;
+            }
+            if (i <= j) {
+                temp = vetorInterno[i];
+                vetorInterno[i] = vetorInterno[j];
+                vetorInterno[j] = temp;
+                i++;
+                j--;
+            }
+        }
+        if (esquerda < j) {
+            Quicksort(vetorInterno, esquerda, j);
+        }
+        if (i < direita) {
+            Quicksort(vetorInterno, i, direita);
         }
 
     }
