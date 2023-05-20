@@ -10,7 +10,7 @@ public class Main {
 
         int escolha;
 
-        ArrayList<Produtos> array_livro = new ArrayList<>();
+        ArrayList<Produtos> array_livros = new ArrayList<>();
 
         while(true) {
 
@@ -67,15 +67,15 @@ public class Main {
                     double valor = key.nextDouble();
                     produto.setValor(valor);
 
-                    array_livro.add(produto);
+                    array_livros.add(produto);
 
 
                     break;
                 case 2:
 
-                    for (Produtos livro : array_livro ) {
+                    for (Produtos produtos : array_livros ) {
 
-                        livro.info();
+                        produtos.info();
 
                     }
 
