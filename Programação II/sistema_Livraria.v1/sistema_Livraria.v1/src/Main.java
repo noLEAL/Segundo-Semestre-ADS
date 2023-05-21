@@ -133,6 +133,8 @@ public class Main {
                     break;
                 case 4:
 
+                    // https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html
+
                     System.out.println("Buscar livros por categoria");
 
                     String buffer4 = key.nextLine();
@@ -150,7 +152,7 @@ public class Main {
 
                         comparadorCAT = busca_category.compareToIgnoreCase(produtos.getArea());
 
-                        if (comparadorCAT >= 0 && comparadorCAT < -3){
+                        if (comparadorCAT <= 0 && comparadorCAT > -3){
 
                             System.out.println(comparadorCAT);
 
