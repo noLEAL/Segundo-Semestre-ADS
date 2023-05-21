@@ -77,6 +77,7 @@ public class Main {
                 case 2:
 
                     //(2) Listar livros
+                    System.out.println("-".repeat(100));
 
                     for (Produtos produtos : array_livros ) {
 
@@ -88,10 +89,8 @@ public class Main {
                 case 3:
 
                     //(3) Buscar livros por nome");
-
+                    System.out.println("-".repeat(100));
                     String buffer3 = key.nextLine();
-
-                    int comparadorNAME;
 
                     System.out.println("Buscar livros por nome");
 
@@ -102,59 +101,41 @@ public class Main {
 
                         //System.out.printf("Está comparando [%s] com -> [%s]",busca_category,produtos.getArea() );
 
-                        comparadorNAME = busca_NAME.compareToIgnoreCase(produtos.getTitulo());
+                        int comparadorNAME = busca_NAME.compareToIgnoreCase(produtos.getTitulo());
 
-                        if (comparadorNAME >= 0 && comparadorNAME < -3){
+                        if (comparadorNAME >= -2 && comparadorNAME <= -2){
 
-                            System.out.println(comparadorNAME);
+                            System.out.println("Livro encontrado");
+                            produtos.info();
 
                         }
 
                     }
 
-//                    for (Produtos produtos : array_livros ) {
-//
-//                        if (produtos.getTitulo().equals(busca_Nome)){
-//
-//                            name++;
-//                            produtos.info();
-//
-//                        }
-//
-//                    }
-//
-//                    if (name > 0){
-//                        System.out.println("Resultados encontrados:" + name);
-//                    }else {
-//                        System.out.println("Não foi encontrado nenhum exemplar");
-//                    }
-
-
                     break;
                 case 4:
 
+                    //(4) Buscar livros por categoria
                     // https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html
 
+                    System.out.println("-".repeat(100));
                     System.out.println("Buscar livros por categoria");
 
                     String buffer4 = key.nextLine();
 
-                    int comparadorCAT;
-
                     System.out.println("Digite a categoria do livro que deseja buscar");
                     String busca_category = key.nextLine();
 
-                    System.out.println(busca_category);
-
                     for (Produtos produtos : array_livros){
 
-                        //System.out.printf("Está comparando [%s] com -> [%s]",busca_category,produtos.getArea());
+                        int comparadorCAT = busca_category.compareToIgnoreCase(produtos.getArea());
 
-                        comparadorCAT = busca_category.compareToIgnoreCase(produtos.getArea());
+                        //System.out.printf("Está comparando [%s] com -> [%s] Probabilidade [%s] %n",busca_category, produtos.getArea(), comparadorCAT);
 
-                        if (comparadorCAT <= 0 && comparadorCAT > -3){
+                        if (comparadorCAT >= -2 && comparadorCAT <= -2){
 
-                            System.out.println(comparadorCAT);
+                            System.out.println("Livro encontrado");
+                            produtos.info();
 
                         }
 
@@ -162,28 +143,72 @@ public class Main {
 
                     break;
                 case 5:
-
+                    
+                    //(5) Buscar livros por preço")
+                    System.out.println("-".repeat(100));
                     System.out.println("Buscar livros por preço");
+
+                    System.out.println("Digite o Preço do livro que deseja buscar");
+
+                    double busca_pice = key.nextDouble();
+
+                    for (Produtos produtos:array_livros ) {
+
+                        if (busca_pice == produtos.getValor()){
+
+                            produtos.info();
+
+                        }
+
+                    }
 
                     break;
                 case 6:
 
-                    System.out.println("Busca por quantidade em estoque");
+                    //(6) Busca por quantidade em estoque"
+                    System.out.println("-".repeat(100));
+                    System.out.println("Buscar livros por quantidade em esoque");
+
+                    System.out.println("Digite a quantidade de livros contidos");
+
+                    int busca_quantity = key.nextInt();
+
+                    for (Produtos produtos:array_livros ) {
+
+                        if (busca_quantity == produtos.getQuantidade_em_Estoque()){
+
+                            produtos.info();
+
+                        }
+
+                    }
 
                     break;
                 case 7:
 
-                    System.out.println("Valor total no estoque");
+                    System.out.println("-".repeat(100));
+                    double valor_Total = 0;
+
+                    for (Produtos produtos:array_livros ) {
+
+                        valor = produtos.getQuantidade_em_Estoque() * produtos.getValor();
+
+                        valor_Total = valor_Total + valor;
+                    }
+
+                    System.out.println("Valor total no estoque:" + valor_Total);
 
                     break;
                 case 0:
 
+                    System.out.println("-".repeat(100));
                     System.out.println("Programa Finalizado");
                     System.exit(1);
 
                     break;
                 default:
 
+                    System.out.println("-".repeat(100));
                     System.out.println("Tente alguma das opções possiveis");
 
                     break;

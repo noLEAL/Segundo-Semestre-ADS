@@ -79,7 +79,7 @@ public class Produtos {
         System.out.println("Categoria:" + this.area);
         System.out.println("Ano:" + this.ano);
         System.out.println("Valor:" + this.valor);
-        System.out.println("Estoque:" + this.quantidade_em_Estoque + "unidades");
+        System.out.println("Estoque:" + this.quantidade_em_Estoque + " unidades");
         System.out.printf("Valor total em estoque: R$ %s%n", this.valor * Double.valueOf(this.quantidade_em_Estoque));
 
     }
