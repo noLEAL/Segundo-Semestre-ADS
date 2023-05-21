@@ -37,7 +37,7 @@ public class Main {
 
                     Produtos produto = new Produtos();
 
-                    String buffer = key.nextLine();
+                    String buffer1 = key.nextLine();
 
                     System.out.println("Titulo");
                     String titulo = key.nextLine();
@@ -82,27 +82,86 @@ public class Main {
                     break;
                 case 3:
 
-                    
+                    String buffer3 = key.nextLine();
+
+                    int name = 0;
+
+                    System.out.println("Buscar livros por nome");
+
+                    System.out.println("Digite o nome do livro que deseja buscar");
+                    String busca_Nome = key.nextLine();
+
+                    for (Produtos produtos : array_livros ) {
+
+                        if (produtos.getTitulo().equals(busca_Nome)){
+
+                            name++;
+                            produtos.info();
+
+                        }
+
+                    }
+
+                    if (name > 0){
+                        System.out.println("Resultados encontrados:" + name);
+                    }else {
+                        System.out.println("Não foi encontrado nenhum exemplar");
+                    }
+
 
                     break;
                 case 4:
 
+                    System.out.println("Buscar livros por categoria");
+
+                    String buffer4 = key.nextLine();
+
+                    int category = 0;
+
+                    System.out.println("Digite a categoria do livro que deseja buscar");
+                    String busca_Nome = key.nextLine();
+
+                    for (Produtos produtos : array_livros ) {
+
+                        if (produtos.getTitulo().equals(busca_Nome)){
+
+                            category++;
+
+                        }
+
+                    }
+
+                    if (category > 0){
+                        System.out.println("Encontrado");
+                    }else {
+                        System.out.println("Não encontrado");
+                    }
+
                     break;
                 case 5:
+
+                    System.out.println("Buscar livros por preço");
 
                     break;
                 case 6:
 
+                    System.out.println("Busca por quantidade em estoque");
+
                     break;
                 case 7:
+
+                    System.out.println("Valor total no estoque");
 
                     break;
                 case 0:
 
+                    System.out.println("Programa Finalizado");
                     System.exit(1);
 
                     break;
                 default:
+
+                    System.out.println("Tente alguma das opções possiveis");
 
                     break;
             }
