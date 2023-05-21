@@ -1,4 +1,6 @@
+import java.text.Collator;  //https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/text/Collator.html
 import java.util.ArrayList;
+import java.util.Locale;  //https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/Locale.html
 import java.util.Scanner;
 
 public class Main {
@@ -32,7 +34,9 @@ public class Main {
             switch (escolha) {
                 case 1:
 
+                    //(1) Cadastrar novo livro
                     System.out.println("-".repeat(100));
+
                     System.out.println("Cadastro de Livro:");
 
                     Produtos produto = new Produtos();
@@ -69,9 +73,10 @@ public class Main {
 
                     array_livros.add(produto);
 
-
                     break;
                 case 2:
+
+                    //(2) Listar livros
 
                     for (Produtos produtos : array_livros ) {
 
@@ -82,31 +87,47 @@ public class Main {
                     break;
                 case 3:
 
+                    //(3) Buscar livros por nome");
+
                     String buffer3 = key.nextLine();
 
-                    int name = 0;
+                    int comparadorNAME;
 
                     System.out.println("Buscar livros por nome");
 
                     System.out.println("Digite o nome do livro que deseja buscar");
-                    String busca_Nome = key.nextLine();
+                    String busca_NAME = key.nextLine();
 
-                    for (Produtos produtos : array_livros ) {
+                    for (Produtos produtos : array_livros){
 
-                        if (produtos.getTitulo().equals(busca_Nome)){
+                        //System.out.printf("Está comparando [%s] com -> [%s]",busca_category,produtos.getArea() );
 
-                            name++;
-                            produtos.info();
+                        comparadorNAME = busca_NAME.compareToIgnoreCase(produtos.getTitulo());
+
+                        if (comparadorNAME >= 0 && comparadorNAME < -3){
+
+                            System.out.println(comparadorNAME);
 
                         }
 
                     }
 
-                    if (name > 0){
-                        System.out.println("Resultados encontrados:" + name);
-                    }else {
-                        System.out.println("Não foi encontrado nenhum exemplar");
-                    }
+//                    for (Produtos produtos : array_livros ) {
+//
+//                        if (produtos.getTitulo().equals(busca_Nome)){
+//
+//                            name++;
+//                            produtos.info();
+//
+//                        }
+//
+//                    }
+//
+//                    if (name > 0){
+//                        System.out.println("Resultados encontrados:" + name);
+//                    }else {
+//                        System.out.println("Não foi encontrado nenhum exemplar");
+//                    }
 
 
                     break;
@@ -116,25 +137,25 @@ public class Main {
 
                     String buffer4 = key.nextLine();
 
-                    int category = 0;
+                    int comparadorCAT;
 
                     System.out.println("Digite a categoria do livro que deseja buscar");
-                    String busca_Nome = key.nextLine();
+                    String busca_category = key.nextLine();
 
-                    for (Produtos produtos : array_livros ) {
+                    System.out.println(busca_category);
 
-                        if (produtos.getTitulo().equals(busca_Nome)){
+                    for (Produtos produtos : array_livros){
 
-                            category++;
+                        //System.out.printf("Está comparando [%s] com -> [%s]",busca_category,produtos.getArea());
+
+                        comparadorCAT = busca_category.compareToIgnoreCase(produtos.getArea());
+
+                        if (comparadorCAT >= 0 && comparadorCAT < -3){
+
+                            System.out.println(comparadorCAT);
 
                         }
 
-                    }
-
-                    if (category > 0){
-                        System.out.println("Encontrado");
-                    }else {
-                        System.out.println("Não encontrado");
                     }
 
                     break;
