@@ -143,7 +143,7 @@ public class Main {
 
                     break;
                 case 5:
-                    
+
                     //(5) Buscar livros por preço")
                     System.out.println("-".repeat(100));
                     System.out.println("Buscar livros por preço");
