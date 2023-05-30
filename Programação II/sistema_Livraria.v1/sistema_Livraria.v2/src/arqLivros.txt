@@ -1,0 +1,3 @@
+3426,compiladores,2012,computação,pearson,R$135.50,50
+2631,sistemas digitais,2017,computação,liber,R$99.90,30
+9680,senhor dos aneis: a sociedade do anel,2005,fantasia,harper,R$35.00,120
