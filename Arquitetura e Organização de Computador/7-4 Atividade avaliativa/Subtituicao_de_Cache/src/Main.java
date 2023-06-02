@@ -1,5 +1,7 @@
 import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -250,7 +252,7 @@ public class Main {
 
         for (String dado : lista) {
 
-            System.out.printf("ESSE É O DADO: <%s> \n",  dado);
+            System.out.printf("\n\nESSE É O DADO: <%s> \n",  dado);
 
             if (cache.contains(dado)) {
                 System.out.println("O dado: " + dado + " já está na cache. [MISS:" + contMiss +"]");
@@ -282,120 +284,69 @@ public class Main {
             }
             System.out.println();
 
-
-
         }
 
-        System.out.println("*".repeat(100));
+        System.out.println();
 
+        System.out.println("*".repeat(100));
 
         System.out.println("Contador de MISS: " + contMiss);
 
-        System.out.println("Contador de HIT" + contHit);
+        System.out.println("Contador de HIT: " + contHit);
 
         System.out.println("*".repeat(100));
+
+        System.out.println();
 
 
     }
 
+    /*==========================================================================================================*/
+
     public static void LRU( ArrayList<String> lista){
-
+        
         System.out.println("-".repeat(100));
-
         System.out.println(lista);
-
         System.out.println(".".repeat(100));
 
         int tamanhoCache = 4;
-
-        ArrayList<String> cache = new ArrayList(4);
+        ArrayList<String> cache = new ArrayList<>();
+        Map<String, Integer> cacheMap = new HashMap<>();
 
         int contMiss = 0;
         int contHit = 0;
 
-        int cont0 = 0;
-        int cont1 = 0;
-        int cont2 = 0;
-        int cont3 = 0;
-
         for (String dado : lista) {
+            System.out.printf("\n\nESSE É O DADO: <%s> \n", dado);
 
-            System.out.printf("\n\nESSE É O DADO: <%s> \n",  dado);
-
-            if (cache.size() == 0){
-
-
-
-
-
-            }
-
-            if (cache.contains(dado)) {
-
+            if (cacheMap.containsKey(dado)) {
+                System.out.println("O dado: " + dado + " já está na cache. [MISS:" + contMiss + "]");
                 contMiss++;
-
-                System.out.println("O dado: " + dado + " já está na cache. [MISS:" + contMiss +"]");
-
-                int indice = cache.indexOf(dado);
-
-                System.out.printf("O dado < %s > está no indice %s \n",dado, indice);
-
-
-                switch (indice) {
-                    case 0:
-
-                        cont0++;
-
-                        break;
-                    case 1:
-
-                        cont1++;
-
-                        break;
-                    case 2:
-
-                        cont2++;
-
-                        break;
-                    case 3:
-
-                        cont3++;
-
-                        break;
+                cache.remove(dado);
+                cache.add(dado);
+            } else {
+                if (cache.size() >= tamanhoCache) {
+                    String removido = cache.remove(0);  // REMOVENDO O INDICE 0 MAIS ANTIGO
+                    cacheMap.remove(removido);
                 }
 
-                // contador para cada espaço do array
-                continue;
+                cache.add(dado);
+                cacheMap.put(dado, cache.size() - 1);
+                contHit++;
+                System.out.println("O Dado " + dado + " foi adicionado à cache.");
             }
-
-            if (cache.size() >= tamanhoCache) {
-
-                System.out.println("CACHE ESTA CHEIO!!!");
-
-                int menor = Math.min(Math.min(cont0, cont1), Math.min(cont2, cont3));
-
-                String limpar = cache.remove(menor);
-
-                System.out.println(cache);
-
-                System.out.println("O Dado " + limpar + " foi removida da cache.");
-
-            }
-
-            contHit++;
-            System.out.printf("Dado %s adicionado ao CACHE [HIT: %s]\n", dado, contHit );
-            cache.add(dado);
-
 
             System.out.println("Conteúdo atual da cache:");
             for (String p : cache) {
                 System.out.print(p + " ");
             }
             System.out.println();
-
         }
 
-
+        System.out.println("*".repeat(100));
+        System.out.println("Contador de MISS: " + contMiss);
+        System.out.println("Contador de HIT: " + contHit);
+        System.out.println("*".repeat(100));
 
     }
 
