@@ -304,7 +304,7 @@ public class Main {
     /*==========================================================================================================*/
 
     public static void LRU( ArrayList<String> lista){
-        
+
         System.out.println("-".repeat(100));
         System.out.println(lista);
         System.out.println(".".repeat(100));
@@ -330,6 +330,7 @@ public class Main {
                     cacheMap.remove(removido);
                 }
 
+
                 cache.add(dado);
                 cacheMap.put(dado, cache.size() - 1);
                 contHit++;
@@ -352,7 +353,78 @@ public class Main {
 
     public static void LFU( ArrayList<String> lista){
 
+        System.out.println("-".repeat(100));
         System.out.println(lista);
+        System.out.println(".".repeat(100));
+
+        int tamanhoCache = 4;
+        ArrayList<String> cache = new ArrayList<>();
+        Map<String, Integer> cacheMap = new HashMap<>();
+
+        int contMiss = 0;
+        int contHit = 0;
+
+        for (String dado : lista) {
+            System.out.printf("\n\nESSE É O DADO: <%s> \n", dado);
+
+            if (cacheMap.containsKey(dado)) {
+                int atual = cacheMap.get(dado);
+                System.out.printf("O dado: [%s] já está na cache. Frequencia atual [%s]\n", dado, atual );
+                contMiss++;
+
+                //System.out.println("cache:"+ cache);
+                //System.out.println("cachemap" + cacheMap);
+                atual = cacheMap.get(dado);
+                //System.out.println("atual" + atual);
+                int atualizado = atual + 1;
+                //System.out.println("atualiado" + atualizado);
+                cacheMap.replace(dado, atualizado);
+                //System.out.println("replace" + cacheMap);
+
+            } else {
+                if (cache.size() >= tamanhoCache) {
+
+                    System.out.println("CACHE CHEIO!!!");
+                    System.out.println("cache" + cache);
+                    System.out.println("cachemap" + cacheMap);
+
+                    int menor = -1;
+
+                    for (Map.Entry<String, Integer> entrada : cacheMap.entrySet()) {
+
+                        Integer valor = entrada.getValue();
+
+                        if (menor == -1 || valor > menor){
+
+                            menor = valor;
+
+                        }
+
+                    }
+
+                    String removido = cache.remove(menor);  // REMOVENDO O INDICE 0 MAIS ANTIGO
+                    cacheMap.remove(removido);
+
+                }
+
+                cache.add(dado);
+                int frequencia = 1;
+                cacheMap.put(dado, frequencia);
+                contHit++;
+                System.out.println("O Dado " + dado + " foi adicionado à cache. Frequencia atual:" + frequencia);
+            }
+
+            System.out.println("Conteúdo atual da cache:");
+            for (String p : cache) {
+                System.out.print(p + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("*".repeat(100));
+        System.out.println("Contador de MISS: " + contMiss);
+        System.out.println("Contador de HIT: " + contHit);
+        System.out.println("*".repeat(100));
 
     }
 }
