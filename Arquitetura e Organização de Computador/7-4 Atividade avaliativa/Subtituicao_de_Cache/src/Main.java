@@ -1,4 +1,4 @@
-import java.io.FileInputStream;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -245,7 +245,7 @@ public class Main {
 
         int tamanhoCache = 4;
 
-        ArrayList<String> cache = new ArrayList(4);
+        ArrayList<String> cache = new ArrayList<>(4);
 
         int contMiss = 0;
         int contHit = 0;
@@ -372,14 +372,14 @@ public class Main {
                 System.out.printf("O dado: [%s] já está na cache. Frequencia atual [%s]\n", dado, atual );
                 contMiss++;
 
-                //System.out.println("cache:"+ cache);
-                //System.out.println("cachemap" + cacheMap);
+                System.out.println("cache:"+ cache);
+                System.out.println("cachemap" + cacheMap);
                 atual = cacheMap.get(dado);
-                //System.out.println("atual" + atual);
+                System.out.println("atual" + atual);
                 int atualizado = atual + 1;
-                //System.out.println("atualiado" + atualizado);
+                System.out.println("atualiado" + atualizado);
                 cacheMap.replace(dado, atualizado);
-                //System.out.println("replace" + cacheMap);
+                System.out.println("replace" + cacheMap);
 
             } else {
                 if (cache.size() >= tamanhoCache) {
