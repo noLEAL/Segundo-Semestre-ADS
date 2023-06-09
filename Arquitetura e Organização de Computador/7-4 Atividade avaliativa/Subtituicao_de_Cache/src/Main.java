@@ -366,15 +366,10 @@ public class Main {
                 int atual = cacheMap.get(dado);
                 contHit++;
                 System.out.printf("O dado: [%s] já está na cache. Frequencia [%s]  [HIT: %S]\n", dado, atual, contHit );
-                //System.out.println("[HIT++] " + contHit);
-                //System.out.println("cachemap" + cacheMap);
-
 
                 atual = cacheMap.get(dado);
-                //System.out.println("atual" + atual);
 
                 int atualizado = atual + 1;
-                //System.out.println("atualiado" + atualizado);
 
                 cacheMap.replace(dado, atualizado);
 
@@ -385,7 +380,6 @@ public class Main {
                 if (cache.size() >= tamanhoCache) {
 
                     System.out.println("CACHE CHEIO!!!");
-                    //System.out.println("cachemap" + cacheMap);
 
                     int menor = 0;
                     String chaveMenor = null;
