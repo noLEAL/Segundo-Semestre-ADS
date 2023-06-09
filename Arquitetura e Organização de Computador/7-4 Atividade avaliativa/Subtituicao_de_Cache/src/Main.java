@@ -55,7 +55,6 @@ public class Main {
 
         ArrayList<String> entradaStringC = new ArrayList<>();
 
-
         entradaStringC.add("A");
         entradaStringC.add("D");
         entradaStringC.add("C");
@@ -90,8 +89,6 @@ public class Main {
         entradaStringC.add("D");
         entradaStringC.add("C");
         entradaStringC.add("D");
-
-
 
         while(true) {
 
@@ -349,7 +346,7 @@ public class Main {
 
     /*==========================================================================================================*/
 
-    public static void       LFU( ArrayList<String> lista){
+    public static void LFU( ArrayList<String> lista){
 
         System.out.println("-".repeat(100));
         System.out.println(lista);
@@ -367,10 +364,10 @@ public class Main {
 
             if (cacheMap.containsKey(dado)) {
                 int atual = cacheMap.get(dado);
-                System.out.printf("O dado: [%s] já está na cache. Frequencia atual [%s]\n", dado, atual );
                 contHit++;
-                System.out.println("[HIT++] " + contHit);
-                System.out.println("cachemap" + cacheMap);
+                System.out.printf("O dado: [%s] já está na cache. Frequencia [%s]  [HIT: %S]\n", dado, atual, contHit );
+                //System.out.println("[HIT++] " + contHit);
+                //System.out.println("cachemap" + cacheMap);
 
 
                 atual = cacheMap.get(dado);
@@ -388,7 +385,7 @@ public class Main {
                 if (cache.size() >= tamanhoCache) {
 
                     System.out.println("CACHE CHEIO!!!");
-                    System.out.println("cachemap" + cacheMap);
+                    //System.out.println("cachemap" + cacheMap);
 
                     int menor = 0;
                     String chaveMenor = null;
@@ -409,7 +406,7 @@ public class Main {
                     if (chaveMenor != null) {
                         cacheMap.remove(chaveMenor);
                         cache.remove(chaveMenor);
-                        System.out.println("Entrada removida: Chave " + chaveMenor);
+                        System.out.println("Entrada removida: " + chaveMenor);
                     }
 
                 }
@@ -418,9 +415,10 @@ public class Main {
                 int frequencia = 1;
                 cacheMap.put(dado, frequencia);
                 contMiss++;
-                System.out.println("[MISS++] " + contMiss);
-                System.out.println("O Dado " + dado + " foi adicionado à cache. Frequencia atual:" + frequencia);
-                System.out.println("cache atual" + cacheMap);
+                //System.out.println("[MISS++] " + contMiss);
+                System.out.printf("O dado [%s] foi adicionado à cache. Frequencia atual: %s. [MISS: %s]\n", dado, frequencia, contMiss);
+                //System.out.println("O Dado " + dado + " foi adicionado à cache. Frequencia atual:" + frequencia);
+                System.out.println("Cache atual:\n" + cacheMap);
             }
         }
 
