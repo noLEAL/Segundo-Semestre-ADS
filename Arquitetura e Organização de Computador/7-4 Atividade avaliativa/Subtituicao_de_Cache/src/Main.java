@@ -107,129 +107,91 @@ public class Main {
             int escolha = key.nextInt();
 
             switch (escolha) {
-                case 1:
+                case 1 -> {
                     System.out.println("(1) FIFO");
-
                     System.out.println("Qual das entradas que você deseja usar:");
-
                     System.out.print("(1)");
                     System.out.println(entradaStringA);
-
                     System.out.print("(2)");
                     System.out.println(entradaStringB);
-
                     System.out.print("(3)");
                     System.out.println(entradaStringC);
-
                     int entrada = key.nextInt();
-
-                    if (entrada == 1){
+                    if (entrada == 1) {
 
                         FIFO(entradaStringA);
 
                     }
-
                     if (entrada == 2) {
 
                         FIFO(entradaStringB);
 
                     }
-
-                    if (entrada ==3){
+                    if (entrada == 3) {
 
                         FIFO(entradaStringC);
 
                     }
-
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     System.out.println("(2) LRU");
-
                     System.out.println("Qual das entradas que você deseja usar:");
-
                     System.out.print("(1)");
                     System.out.println(entradaStringA);
-
                     System.out.print("(2)");
                     System.out.println(entradaStringB);
-
                     System.out.print("(3)");
                     System.out.println(entradaStringC);
-
                     int entrada1 = key.nextInt();
-
-                    if (entrada1 == 1){
+                    if (entrada1 == 1) {
 
                         LRU(entradaStringA);
 
                     }
-
                     if (entrada1 == 2) {
 
                         LRU(entradaStringB);
 
                     }
-
-                    if (entrada1 ==3){
+                    if (entrada1 == 3) {
 
                         LRU(entradaStringC);
 
                     }
-
-                    if (entrada1 != 1 && entrada1 != 2 && entrada1 != 3){
+                    if (entrada1 != 1 && entrada1 != 2 && entrada1 != 3) {
 
                         System.out.println("Você é burro ");
 
                     }
-
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     System.out.println("(3) LFU");
-
                     System.out.println("Qual das entradas que você deseja usar:");
-
                     System.out.print("(1)");
                     System.out.println(entradaStringA);
-
                     System.out.print("(2)");
                     System.out.println(entradaStringB);
-
                     System.out.print("(3)");
                     System.out.println(entradaStringC);
-
                     int entrada2 = key.nextInt();
-
-                    if (entrada2 == 1){
+                    if (entrada2 == 1) {
 
                         LFU(entradaStringA);
 
                     }
-
                     if (entrada2 == 2) {
 
                         LFU(entradaStringB);
 
                     }
-
-                    if (entrada2 ==3){
+                    if (entrada2 == 3) {
 
                         LFU(entradaStringC);
 
                     }
-
-                    break;
-                case 0:
-
-                    System.exit(1);
-
-                    break;
-                default:
-
-                    System.out.println("Tente novamente");
-
-                    break;
-
-
+                }
+                case 0 -> System.exit(1);
+                default -> System.out.println("Tente novamente");
             }
         }
     }
@@ -262,9 +224,8 @@ public class Main {
             if (cache.size() >= tamanhoCache) {
 
                 System.out.println("CACHE ESTA CHEIO!!!");
-                System.out.println(cache);
+                System.out.println(cache + "\n");
                 cache.remove(0);
-                System.out.println("");
 
             }
 
