@@ -370,9 +370,7 @@ public class Main {
                 int frequencia = 1;
                 cacheMap.put(dado, frequencia);
                 contMiss++;
-                //System.out.println("[MISS++] " + contMiss);
                 System.out.printf("O dado [%s] foi adicionado à cache. Frequencia atual: %s. [MISS: %s]\n", dado, frequencia, contMiss);
-                //System.out.println("O Dado " + dado + " foi adicionado à cache. Frequencia atual:" + frequencia);
                 System.out.println("Cache atual:\n" + cacheMap);
             }
         }
