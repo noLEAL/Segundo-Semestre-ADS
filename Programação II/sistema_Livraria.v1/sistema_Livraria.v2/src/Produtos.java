@@ -14,6 +14,12 @@ public class Produtos {
         this.valor = valor;
 
     }
+
+    @Override
+    public String toString() {
+        return  titulo + "," + editora + "," + area + "," + codigo + "," + ano + "," + quantidade_em_Estoque + "," + valor;
+    }
+
     public String getTitulo() {
         return titulo;
     }

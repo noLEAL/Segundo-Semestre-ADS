@@ -1,9 +1,16 @@
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.FileSystemException;
 import java.io.FileInputStream;
-import java.text.Collator;  //https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/text/Collator.html
 import java.util.ArrayList;
-import java.util.Locale;  //https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/Locale.html
 import java.util.Scanner;
 
+/*
+Name: Bruno Leal da Silva Paz
+GIT: 
+
+
+*/
 public class Main {
     public static void main(String[] args) throws Exception {
         System.out.println("Inicio do Programa");
@@ -17,6 +24,7 @@ public class Main {
         int escolha;
 
         ArrayList<Produtos> array_livros = new ArrayList<>();
+        Produtos produto;
 
         while(true) {
 
@@ -30,6 +38,7 @@ public class Main {
             System.out.println("(6) Busca por quantidade em estoque");
             System.out.println("(7) Valor total no estoque");
             System.out.println("(8) Carregar estoque");
+            System.out.println("(9) Salvar log");
             System.out.println("(0) Encerrar atividades");
 
             System.out.println("=".repeat(100));
@@ -44,7 +53,7 @@ public class Main {
 
                     System.out.println("Cadastro de Livro:");
 
-                    Produtos produto = new Produtos();
+                    produto = new Produtos();
 
                     String buffer1 = key.nextLine();
 
@@ -211,25 +220,49 @@ public class Main {
 
                     while(entradaTexto.hasNextLine() == true) {
                         linha = entradaTexto.nextLine();
-                        System.out.println(linha);
+                        //System.out.println(linha);
                         SL = linha.split(",");
-                        System.out.println(SL.length);
+                        //System.out.println(SL.length);
+                        produto = new Produtos();
+                        //<codigo>,<titulo>,<ano>,<área/gênero>,<editora>,R$<valor>,<qtd em estoque>
+                        produto.setCodigo(Integer.parseInt(SL[0]));
+                        produto.setTitulo(SL[1]);
+                        produto.setAno(Integer.parseInt(SL[2]));
+                        produto.setArea(SL[3]);
+                        produto.setEditora(SL[4]);
+                        SL[5] = SL[5].replaceAll("[^0-9]", "");
+                        produto.setValor(Double.parseDouble(SL[5]));
+                        produto.setQuantidade_em_Estoque(Integer.parseInt(SL[6]));
 
-                        for (int i = 0; i < SL.length; i++) {
 
-                            System.out.println(SL[i]);
+                        array_livros.add(produto);
 
+                    }
+                    break;
+                case 9:
+
+                    try {
+                        Path caminhoArquivo = Path.of("src/log.txt");
+
+                        ArrayList<String> listaStrings = new ArrayList<>();
+                        for (Produtos produtos : array_livros) {
+                            listaStrings.add(produtos.toString());
                         }
 
-//                        if (SL[0].equals("carro")) {
-//                            Carro c1 = new Carro(SL[1], SL[2], SL[3], Double.parseDouble(SL[4]), Integer.parseInt(SL[5]));
-//                            c1.Info();
-//                        }
+                        Files.write(caminhoArquivo, listaStrings);
 
+                        System.out.println("Os dados foram escritos no arquivo.");
+                    } catch (FileSystemException e) {
+                        System.err.println("Ocorreu um erro ao acessar o arquivo.");
+                        e.printStackTrace();
                     }
 
                     break;
                 case 0:
+
+
+                    System.out.println("Você deseja salvar as altereções feitas? [Y] or [N]");
+
 
                     System.out.println("-".repeat(100));
                     System.out.println("Programa Finalizado");

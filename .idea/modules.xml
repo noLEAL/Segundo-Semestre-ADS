@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Arquitetura e Organização de Computador/Arquitetura e Organização de Computador.iml" filepath="$PROJECT_DIR$/Arquitetura e Organização de Computador/Arquitetura e Organização de Computador.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Estrutura de Dados/Exercício 1/Exercício 1.iml" filepath="$PROJECT_DIR$/Estrutura de Dados/Exercício 1/Exercício 1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Estrutura de Dados/Exercício 2/Exercício 2.iml" filepath="$PROJECT_DIR$/Estrutura de Dados/Exercício 2/Exercício 2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Estrutura de Dados/Exercício 3/Exercício 3.iml" filepath="$PROJECT_DIR$/Estrutura de Dados/Exercício 3/Exercício 3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Segundo-Semestre-ADS.iml" filepath="$PROJECT_DIR$/.idea/Segundo-Semestre-ADS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Programação II/ex_Fixação/abrir_Arquivo/abrir_Arquivo.iml" filepath="$PROJECT_DIR$/Programação II/ex_Fixação/abrir_Arquivo/abrir_Arquivo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Programação II/ex_Fixação/atividade1_objectOrientation/atividade1_objectOrientation.iml" filepath="$PROJECT_DIR$/Programação II/ex_Fixação/atividade1_objectOrientation/atividade1_objectOrientation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Programação II/ex_Fixação/ex_Fixação.iml" filepath="$PROJECT_DIR$/Programação II/ex_Fixação/ex_Fixação.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Programação II/ex_Fixação/heranca/heranca.iml" filepath="$PROJECT_DIR$/Programação II/ex_Fixação/heranca/heranca.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Programação II/ex_Fixação/sistema_Condominio/sistema_Condominio.iml" filepath="$PROJECT_DIR$/Programação II/ex_Fixação/sistema_Condominio/sistema_Condominio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Programação II/sistema_Livraria.v1/sistema_Livraria.v1/sistema_Livraria.v1.iml" filepath="$PROJECT_DIR$/Programação II/sistema_Livraria.v1/sistema_Livraria.v1/sistema_Livraria.v1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Programação II/sistema_Livraria.v1/sistema_Livraria.v2/sistema_Livraria.v2.iml" filepath="$PROJECT_DIR$/Programação II/sistema_Livraria.v1/sistema_Livraria.v2/sistema_Livraria.v2.iml" />
+    </modules>
+  </component>
+</project>
