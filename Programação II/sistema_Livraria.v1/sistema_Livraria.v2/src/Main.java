@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /*
-Name: Bruno Leal da Silva Paz
-GIT: 
-
-
+Name developer: Bruno Leal da Silva Paz
+GIT: https://github.com/noLEAL
+version: 2.0
 */
+
 public class Main {
     public static void main(String[] args) throws Exception {
         System.out.println("Inicio do Programa");
