@@ -1,20 +1,24 @@
 import java.util.ArrayList;
 
 public class Pet {
-
     private String especie;
+
     private String raca;
     private String nome;
     private int idade;
     private ArrayList<Tutor> tutores;
 
-    public Pet(String especie, String raca, String nome, int idade, ArrayList<Tutor> tutores) {
+    private Tutor tutoresref;
+
+    public Pet(String especie, String raca, String nome, int idade, Tutor tutoresref) {
         this.especie = especie;
         this.raca = raca;
         this.nome = nome;
         this.idade = idade;
-        this.tutores = new ArrayList<>();
+        tutores = new ArrayList<Tutor>();
+        tutores.add(tutoresref);
     }
+
     public Pet(String especie, String raca, String nome, int idade) {
         this.especie = especie;
         this.raca = raca;
@@ -22,12 +26,27 @@ public class Pet {
         this.idade = idade;
     }
 
+    public ArrayList<Tutor> getTutores() {
+        return tutores;
+    }
+    public void setTutores(ArrayList<Tutor> tutores) {
+        this.tutores = tutores;
+    }
+
     public String getEspecie() {
         return especie;
     }
-         
+
     public void setEspecie(String especie) {
         this.especie = especie;
+    }
+
+    public Tutor getTutoresref() {
+        return tutoresref;
+    }
+
+    public void setTutoresref(Tutor tutoresref) {
+        this.tutoresref = tutoresref;
     }
 
     public String getRaca() {
@@ -60,6 +79,11 @@ public class Pet {
          System.out.println("especie:" + this.especie);
          System.out.println("raca:" + this.raca);
          System.out.println("idade:" + this.idade);
+
+     }
+     void info_tutores(){
+
+         System.out.println("tutores pet:" + getTutoresref());
 
      }
 }
