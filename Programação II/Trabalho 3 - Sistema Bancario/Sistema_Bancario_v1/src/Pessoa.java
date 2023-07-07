@@ -1,23 +1,76 @@
+import java.util.ArrayList;
+
 public class Pessoa  {
 
     public String nome;
     public String sobrenome;
     int idade;
     private String cpf;
-    //private Conta_Bancaria;
-    public String Titular = nome + sobrenome;
+    private ArrayList<Conta_Bancaria> ContasBancarias =  new ArrayList<>();
+    ArrayList<Pessoa> array_clietes = new ArrayList<>();
+    public Pessoa() {
 
+    }
 
-    public Pessoa(String Titular, int idade, String cpf) {
-        this.Titular = Titular;
+    public Pessoa getClientes(int indice){
+
+        return array_clietes.get(indice);
+    }
+
+    public void setClientes(Pessoa cliente){
+
+        array_clietes.add(cliente);
+
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
         this.idade = idade;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    public void Info(){
 
-        System.out.println("Titular:" + (this.nome + this.sobrenome));
-        System.out.println("Idade:" + this.idade );
-        System.out.println("CPF:" + this.cpf );
+    public ArrayList<Conta_Bancaria> getContasBancarias() {
+        return ContasBancarias;
+    }
+
+    public void setContasBancarias(ArrayList<Conta_Bancaria> contasBancarias) {
+        ContasBancarias = contasBancarias;
+    }
+    public void info(){
+
+        System.out.println("Titular:" + this.getNome() + this.getSobrenome());
+        System.out.println("Idade:" + this.getIdade());
+        System.out.println("CPF:" + this.getCpf());
+        if (this.getContasBancarias().size() > 0 ){
+            System.out.println("Contas:" + this.getContasBancarias());
+        }else {
+            System.out.println("Sem contas Cadastradas.");
+        }
 
     }
 }
