@@ -3,41 +3,42 @@ import java.util.ArrayList;
 public class Banco {
 
     private String nome;
-
     private String cNPJ;
-
     private int nroBanco;
     private ArrayList<Conta_Bancaria> ContasBancarias =  new ArrayList<>();
 
-    ArrayList<Banco> array_bancos = new ArrayList<>();
-    Banco(){
-
+    public Banco(String nome, String cNPJ, int nroBanco) {
+        this.nome = nome;
+        this.cNPJ = cNPJ;
+        this.nroBanco = nroBanco;
+        //ContasBancarias = contasBancarias;
     }
 
-    public Banco getBanco(int numeroBanco) {
 
-        for (Banco nrBanco : array_bancos) {
+    //    public Banco getBanco(int numeroBanco) {
+//
+//        for (Banco nrBanco : array_bancos) {
+//
+//            if (numeroBanco == nrBanco.getNroBanco()) {
+//
+//                int indice = array_bancos.indexOf(nrBanco);
+//
+//                return array_bancos.get(indice);
+//
+//            } else {
+//
+//                System.out.println("Numero do banco não encontrado, tente outro.");
+//
+//            }
+//        }
+//        return null;
+//    }
 
-            if (numeroBanco == nrBanco.getNroBanco()) {
-
-                int indice = array_bancos.indexOf(nrBanco);
-
-                return array_bancos.get(indice);
-
-            } else {
-
-                System.out.println("Numero do banco não encontrado, tente outro.");
-
-            }
-        }
-        return null;
-    }
-
-    public void setBancos(Banco banco){
-
-        array_bancos.add(banco);
-
-    }
+//    public void setBancos(Banco banco){
+//
+//        array_bancos.add(banco);
+//
+//    }
 
     public String getNome() {
         return nome;

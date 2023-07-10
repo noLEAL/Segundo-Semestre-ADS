@@ -61,7 +61,7 @@ public class Pessoa  {
     public void setContasBancarias(ArrayList<Conta_Bancaria> contasBancarias) {
         ContasBancarias = contasBancarias;
     }
-    public void info(){
+    public void Info(){
 
         System.out.println("Titular:" + this.getNome() + this.getSobrenome());
         System.out.println("Idade:" + this.getIdade());
@@ -73,4 +73,11 @@ public class Pessoa  {
         }
 
     }
+
+    public void InfoContas(){
+
+        System.out.println("Esse cliente possui:" + this.getContasBancarias() );
+
+    }
 }
+

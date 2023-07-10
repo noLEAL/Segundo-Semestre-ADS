@@ -19,11 +19,16 @@ public abstract class Conta_Bancaria {
 
     }
 
-    void VerificaSenha(){
+    public boolean VerificaSenha(String verSenha){
 
+        if () {
+            return true;
+        }else {
+            return false;
+        }
     }
 
-    void Saque(){
+    public void Saque(){
 
     }
 
