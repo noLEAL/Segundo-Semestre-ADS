@@ -7,62 +7,21 @@ public class Pessoa  {
     int idade;
     private String cpf;
     private ArrayList<Conta_Bancaria> ContasBancarias =  new ArrayList<>();
-    ArrayList<Pessoa> array_clietes = new ArrayList<>();
+
+    public Pessoa(String nome, String sobrenome, int idade, String cpf) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.idade = idade;
+        this.cpf = cpf;
+    }
+
     public Pessoa() {
 
     }
 
-    public Pessoa getClientes(int indice){
-
-        return array_clietes.get(indice);
-    }
-
-    public void setClientes(Pessoa cliente){
-
-        array_clietes.add(cliente);
-
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public ArrayList<Conta_Bancaria> getContasBancarias() {
-        return ContasBancarias;
-    }
-
-    public void setContasBancarias(ArrayList<Conta_Bancaria> contasBancarias) {
-        ContasBancarias = contasBancarias;
-    }
     public void Info(){
 
+        System.out.println("=".repeat(100));
         System.out.println("Titular:" + this.getNome() + this.getSobrenome());
         System.out.println("Idade:" + this.getIdade());
         System.out.println("CPF:" + this.getCpf());
@@ -71,13 +30,48 @@ public class Pessoa  {
         }else {
             System.out.println("Sem contas Cadastradas.");
         }
+        System.out.println("=".repeat(100));
 
     }
-
     public void InfoContas(){
 
-        System.out.println("Esse cliente possui:" + this.getContasBancarias() );
+        System.out.println("Esse cliente possui: " + this.getContasBancarias());
 
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getSobrenome() {
+        return sobrenome;
+    }
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+    public int getIdade() {
+        return idade;
+    }
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+    public String getCpf() {
+        return cpf;
+    }
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    public ArrayList<Conta_Bancaria> getContasBancarias() {
+        return this.ContasBancarias;
+    }
+    public void setContasBancarias(Conta_Bancaria contaPessoa) {
+        this.ContasBancarias.add(contaPessoa);
+    }
+    @Override
+    public String toString() {
+        return nome + sobrenome;
     }
 }
 

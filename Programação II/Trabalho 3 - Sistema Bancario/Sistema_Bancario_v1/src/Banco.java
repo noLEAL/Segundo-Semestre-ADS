@@ -14,57 +14,10 @@ public class Banco {
         //ContasBancarias = contasBancarias;
     }
 
+    public Banco() {
 
-    //    public Banco getBanco(int numeroBanco) {
-//
-//        for (Banco nrBanco : array_bancos) {
-//
-//            if (numeroBanco == nrBanco.getNroBanco()) {
-//
-//                int indice = array_bancos.indexOf(nrBanco);
-//
-//                return array_bancos.get(indice);
-//
-//            } else {
-//
-//                System.out.println("Numero do banco não encontrado, tente outro.");
-//
-//            }
-//        }
-//        return null;
-//    }
-
-//    public void setBancos(Banco banco){
-//
-//        array_bancos.add(banco);
-//
-//    }
-
-    public String getNome() {
-        return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCNPJ() {
-        return cNPJ;
-    }
-
-    public void setCNPJ(String cNPJ) {
-        this.cNPJ = cNPJ;
-    }
-
-    public int getNroBanco() {
-        return nroBanco;
-    }
-
-    public void setNroBanco(int nroBanco) {
-        this.nroBanco = nroBanco;
-    }
-
-    //=============================================================
     void infoBanco(){
 
         System.out.println("Nome do Banco:" + this.getNome());
@@ -72,17 +25,53 @@ public class Banco {
         System.out.println("Número Banco:" + this.getNroBanco());
 
     }
-    void infoContas(){
 
-
-
-
-    }
-    void criarConta(){
-
-    }
     void fecharConta(){
 
     }
+    void infoContas(){
 
+        System.out.println(ContasBancarias);
+
+    }
+    void criarConta(Conta_Bancaria contaBanco){
+
+        ContasBancarias.add(contaBanco);
+
+    }
+
+    ////////////////////////////////////////////////////////////////////////
+
+    public ArrayList<Conta_Bancaria> getContasBancarias() {
+        return ContasBancarias;
+    }
+    public void setContasBancarias(Conta_Poupanca setPolpa) {
+        ContasBancarias.add(setPolpa);
+    }
+    public void setContasBancarias(Conta_Corrente setCorrent) {
+        ContasBancarias.add(setCorrent);
+    }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getCNPJ() {
+        return cNPJ;
+    }
+    public void setCNPJ(String cNPJ) {
+        this.cNPJ = cNPJ;
+    }
+    public int getNroBanco() {
+        return nroBanco;
+    }
+    public void setNroBanco(int nroBanco) {
+        this.nroBanco = nroBanco;
+    }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
 }
