@@ -13,8 +13,8 @@ public class Main {
         ArrayList<Conta_Poupanca> array_poupanca = new ArrayList<>();
         Scanner key = new Scanner(System.in);
 
-        //////////////////////////////////////////////////////////////////////////////////////////////////
-        Banco bancotest1 = new Banco("Brasil","25.496.235/0001-47", 1010);
+        /////////////////////////////////////////APENAS PARA TESTE/////////////////////////////////////////////////////////
+        Banco bancotest1 = new Banco("Brasil","25.496.235/0001-47", 10101);
         array_bancos.add(bancotest1);
         Banco bancotest2 = new Banco("Bradesco","88.298.137/0001-15",1111);
         array_bancos.add(bancotest2);
@@ -22,7 +22,7 @@ public class Main {
         array_clietes.add(clientetest1);
         Pessoa clientetest2 = new Pessoa("Java","Coffe",79,"837.937.000-11" );
         array_clietes.add(clientetest2);
-        //////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////APENAS PARA TESTE///////////////////////////////////////////////////////////
         while (true){
 
             System.out.println("=".repeat(100));
@@ -113,11 +113,11 @@ public class Main {
 
                     String buffer3 = key.nextLine();
 
-                    System.out.println("Qual tipo de conta deseja criar: Correte [1] x Poupança [0]");
+                    System.out.println("Qual tipo de conta deseja criar: Correte [0] x Poupança [1]");
 
                     int conta = key.nextInt();
 
-                    if (conta == 1 ){
+                    if (conta == 0 ){
 
                         Conta_Corrente contaCorrente = new Conta_Corrente();
 
@@ -133,7 +133,7 @@ public class Main {
                         int banco = key.nextInt();
                         contaCorrente.setBanco(array_bancos.get(banco));
 
-                        System.out.printf("Numero da conta:%n");
+                        System.out.printf("Numero da conta: (XXXX-X)%n");
                         int nrConta = key.nextInt();
                         contaCorrente.setNroConta(nrConta);
 
@@ -157,15 +157,15 @@ public class Main {
 
                         Conta_Poupanca contaPolpa = new Conta_Poupanca();
 
-                        System.out.println("Selecione Titular:");
+                        System.out.printf("Selecione Titular:%n");
                         exibirClientes(array_clietes);
-                        System.out.println("");
+                        System.out.println("%n");
                         int nome = key.nextInt();
                         contaPolpa.setTitular(array_clietes.get(nome));
 
-                        System.out.println("Selecione Banco:");
+                        System.out.printf("Selecione Banco:%n");
                         exibirBanco(array_bancos);
-                        System.out.println("");
+                        System.out.printf("%n");
                         int banco = key.nextInt();
                         contaPolpa.setBanco(array_bancos.get(banco));
 
@@ -180,7 +180,6 @@ public class Main {
                         contaPolpa.setSenha(senha);
 
                         contaPolpa.getTitular().setContasBancarias(contaPolpa);
-
                         array_poupanca.add(contaPolpa);
 
                         contaPolpa.Info();
@@ -269,6 +268,59 @@ public class Main {
 
 
                     }
+
+                }
+                case 7 ->{
+
+                    System.out.println("Depositar:[0]Conta Corrente x [1]Conta Poupança");
+
+                    int sacConta = key.nextInt();
+
+                    int flag = 0;
+
+                    if (sacConta == 0){
+
+                        System.out.println("Numero da conta corrente");
+
+                        int numeroContaCorre = key.nextInt();
+
+                        for (Conta_Corrente contaCorrente : array_corrente) {
+                            if (contaCorrente.getNroConta() == numeroContaCorre) {
+                                flag = 1;
+                                contaCorrente.Saque();
+
+                            }
+                        }
+
+                        if (flag == 0) {
+
+                            System.out.println("Conta não encontrada");
+
+                        }
+                    }
+
+                    if (sacConta == 1){
+
+                        System.out.println("Numero da conta poupança");
+
+                        int numeroContapoup = key.nextInt();
+
+                        for (Conta_Poupanca Contapoup : array_poupanca) {
+                            if (Contapoup.getNroConta() == numeroContapoup) {
+                                flag = 1;
+                                Contapoup.Saque();
+
+                            }
+                        }
+
+                        if (flag == 0) {
+
+                            System.out.println("Conta não encontrada");
+
+                        }
+
+                    }
+
 
                 }
                 case 0 -> System.exit(1);
