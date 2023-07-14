@@ -69,7 +69,7 @@ public class Main {
 
                     String buffer11 = key.nextLine();
 
-                    System.out.println("CPF:");
+                    System.out.println("CPF: (XXX.XXX.XXX-XX)");
                     String CPF = key.nextLine();
                     cliente.setCpf(CPF);
 
@@ -178,6 +178,8 @@ public class Main {
                         System.out.println("Senha:");
                         String senha = key.nextLine();
                         contaPolpa.setSenha(senha);
+
+                        contaPolpa.getTitular().setContasBancarias(contaPolpa);
 
                         array_poupanca.add(contaPolpa);
 

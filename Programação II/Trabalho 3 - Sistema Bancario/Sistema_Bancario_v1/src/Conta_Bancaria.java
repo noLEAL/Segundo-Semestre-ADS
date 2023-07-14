@@ -88,7 +88,7 @@ public abstract class Conta_Bancaria {
 
     @Override
     public String toString() {
-        return  "Titular: " + this.titular.getNome() +
+        return  "Tipo: " + this.titular.getNome() +
                 ", \nBanco: " + this.banco.getNome() +
                 ", \nNúmero da Conta: " + this.nroConta +
                 ", \nSaldo: " + this.saldo;

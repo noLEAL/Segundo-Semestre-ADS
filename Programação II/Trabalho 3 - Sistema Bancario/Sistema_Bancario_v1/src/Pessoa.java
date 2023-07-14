@@ -26,7 +26,9 @@ public class Pessoa  {
         System.out.println("Idade:" + this.getIdade());
         System.out.println("CPF:" + this.getCpf());
         if (this.getContasBancarias().size() > 0 ){
-            System.out.println("Contas:" + this.getContasBancarias());
+
+            
+
         }else {
             System.out.println("Sem contas Cadastradas.");
         }
