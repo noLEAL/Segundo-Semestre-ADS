@@ -75,7 +75,7 @@ public class Main {
 
                     array_clietes.add(cliente);
 
-                    cliente.Info();
+                    cliente.Info(array_corrente,array_poupanca);
 
                 }
                 case 2 -> {
@@ -202,7 +202,7 @@ public class Main {
                     for (Pessoa arrayCliete : array_clietes) {
                         if (arrayCliete.getCpf().equals(CPF)) {
                             flag++;
-                            arrayCliete.Info();
+                            arrayCliete.Info(array_corrente,array_poupanca);
 
                         }
                     }
@@ -278,6 +278,8 @@ public class Main {
            }
         }
 
+
+
     }
 
     public static void exibirClientes(ArrayList<Pessoa> array_clietes){
@@ -295,4 +297,6 @@ public class Main {
         }
 
     }
+
+
 }

@@ -19,18 +19,41 @@ public class Pessoa  {
 
     }
 
-    public void Info(){
+    public void Info(ArrayList<Conta_Corrente> array_corrente, ArrayList<Conta_Poupanca> array_poupanca){
 
         System.out.println("=".repeat(100));
         System.out.println("Titular:" + this.getNome() + this.getSobrenome());
         System.out.println("Idade:" + this.getIdade());
         System.out.println("CPF:" + this.getCpf());
-        if (this.getContasBancarias().size() > 0 ){
+        if (this.getContasBancarias().size() > 0) {
+            for (int i = 0; i < this.getContasBancarias().size(); i++) {
+                Conta_Bancaria conta = this.getContasBancarias().get(i);
 
-            
+                for (int j = 0; j < array_corrente.size(); j++) {
+                    Conta_Corrente contaCorrente = array_corrente.get(j);
 
-        }else {
-            System.out.println("Sem contas Cadastradas.");
+                    if (conta.getNroConta() == contaCorrente.getNroConta()) {
+                        System.out.println("Tipo: Conta Corrente");
+                        System.out.println(contaCorrente);
+                        break;
+                    }
+                }
+            }
+            for (int i = 0; i < this.getContasBancarias().size(); i++) {
+                Conta_Bancaria conta = this.getContasBancarias().get(i);
+
+                for (int j = 0; j < array_poupanca.size(); j++) {
+                    Conta_Poupanca contaPoupanca = array_poupanca.get(j);
+
+                    if (conta.getNroConta() == contaPoupanca.getNroConta()) {
+                        System.out.println("Tipo: Conta Poupança");
+                        System.out.println(contaPoupanca);
+                        break; //lop para a próxima iteração
+                    }
+                }
+            }
+        } else {
+            System.out.println("Sem contas cadastradas.");
         }
         System.out.println("=".repeat(100));
 

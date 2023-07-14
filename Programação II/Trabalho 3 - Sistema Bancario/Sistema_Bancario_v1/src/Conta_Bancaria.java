@@ -28,7 +28,7 @@ public abstract class Conta_Bancaria {
 
         String convert = verSenha + "";
 
-        if (this.senha.equals(convert)){
+        if(this.senha.equals(convert)){
             return true;
         }else {
             return false;
@@ -88,10 +88,9 @@ public abstract class Conta_Bancaria {
 
     @Override
     public String toString() {
-        return  "Tipo: " + this.titular.getNome() +
-                ", \nBanco: " + this.banco.getNome() +
-                ", \nNúmero da Conta: " + this.nroConta +
-                ", \nSaldo: " + this.saldo;
+        return  "Banco: " + this.banco.getNome() +
+                "\nNúmero da Conta: " + this.nroConta +
+                "\nSaldo: " + this.saldo;
 
     }
 
