@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;  //https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html
 import java.util.Comparator;
 import java.util.List;
 
@@ -22,8 +23,10 @@ class Grafo {
     }
 
     public void listarCidades() {
-        for (Vertice cidade : this.vertices) {
-            System.out.println(cidade.getNome());
+        Collections.sort(vertices, (v1, v2) -> v1.getNome().compareTo(v2.getNome())); //Criterio alfabetico para ordenar por nome (LAMBADA)
+        for (int i = 0; i < vertices.size(); i++) {
+            Vertice cidade = vertices.get(i);
+            System.out.printf("[%s] -> %s \n",i,cidade.getNome());
         }
     }
 
