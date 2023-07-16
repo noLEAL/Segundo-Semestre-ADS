@@ -1,5 +1,5 @@
 class Vertice {
-    private String nome;
+    public String nome;
 
     public Vertice(String nome) {
         this.nome = nome;

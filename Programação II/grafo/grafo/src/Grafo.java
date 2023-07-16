@@ -1,11 +1,10 @@
 import java.util.ArrayList;
 import java.util.Collections;  //https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html
-import java.util.Comparator;
 import java.util.List;
 
 class Grafo {
     public List<Vertice> vertices;
-    private List<Aresta> arestas;
+    public List<Aresta> arestas;
 
     public Grafo() {
         this.vertices = new ArrayList<>();
@@ -40,22 +39,26 @@ class Grafo {
 
     public void listarCidadesVizinhas(Vertice cidadeOrigem) {
         List<Aresta> vizinhos = new ArrayList<>();
-        for (Aresta conexao : this.arestas) {
+        for (Aresta conexao : arestas) {
             if (conexao.getOrigem() == cidadeOrigem || conexao.getDestino() == cidadeOrigem) {
                 vizinhos.add(conexao);
             }
         }
 
-        vizinhos.sort(new Comparator<Aresta>() {
-            public int compare(Aresta a1, Aresta a2) {
-                return Integer.compare(a1.getDistancia(), a2.getDistancia());
+        //Insertion Sort
+        for (int i = 1; i < vizinhos.size(); i++) {
+            Aresta chave = vizinhos.get(i);
+            int j = i - 1;
+            while (j >= 0 && vizinhos.get(j).getDistancia() > chave.getDistancia()) {
+                vizinhos.set(j + 1, vizinhos.get(j));
+                j--;
             }
-        });
+            vizinhos.set(j + 1, chave);
+        }
 
         for (Aresta vizinho : vizinhos) {
             Vertice cidadeDestino = (vizinho.getOrigem() == cidadeOrigem) ? vizinho.getDestino() : vizinho.getOrigem();
             System.out.println("Cidade: " + cidadeDestino.getNome() + " | Distância: " + vizinho.getDistancia());
         }
     }
-
 }

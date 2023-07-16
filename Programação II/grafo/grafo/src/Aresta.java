@@ -1,7 +1,7 @@
 class Aresta {
-    private Vertice origem;
-    private Vertice destino;
-    private int distancia;
+    public Vertice origem;
+    public Vertice destino;
+    public int distancia;
 
     public Aresta(Vertice origem, Vertice destino, int distancia) {
         this.origem = origem;
