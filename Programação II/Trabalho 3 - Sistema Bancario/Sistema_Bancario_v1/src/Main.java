@@ -1,10 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//Name developer: Bruno Leal da Silva Paz
-//GIT: https://github.com/noLEAL
-// version: 1.0
-
 public class Main {
     public static void main(String[] args) {
         ArrayList<Pessoa> array_clietes = new ArrayList<>();
