@@ -41,8 +41,8 @@ public class Main {
 
             switch (escolha) {
                 case 1:
-
                     //(1) Cadastrar novo livro
+
                     System.out.println("-".repeat(100));
 
                     System.out.println("Cadastro de Livro:");
@@ -83,8 +83,8 @@ public class Main {
 
                     break;
                 case 2:
-
                     //(2) Listar livros
+
                     System.out.println("-".repeat(100));
 
                     for (Produtos produtos : array_livros ) {
@@ -95,8 +95,8 @@ public class Main {
 
                     break;
                 case 3:
+                    //(3) Buscar livros por nome
 
-                    //(3) Buscar livros por nome");
                     System.out.println("-".repeat(100));
                     String buffer3 = key.nextLine();
 
@@ -111,7 +111,7 @@ public class Main {
 
                         int comparadorNAME = busca_NAME.compareToIgnoreCase(produtos.getTitulo());
 
-                        if (comparadorNAME >= -2 && comparadorNAME <= -2){
+                        if (comparadorNAME == 0){
 
                             System.out.println("Livro encontrado");
                             produtos.info();
@@ -122,7 +122,6 @@ public class Main {
 
                     break;
                 case 4:
-
                     //(4) Buscar livros por categoria
                     // https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html
 
@@ -138,21 +137,26 @@ public class Main {
 
                         int comparadorCAT = busca_category.compareToIgnoreCase(produtos.getArea());
 
-                        //System.out.printf("Está comparando [%s] com -> [%s] Probabilidade [%s] %n",busca_category, produtos.getArea(), comparadorCAT);
+                        System.out.printf("Está comparando [%s] com -> [%s] Probabilidade [%s] %n",busca_category, produtos.getArea(), comparadorCAT);
 
-                        if (comparadorCAT >= -2 && comparadorCAT <= -2){
+                        if (comparadorCAT == 0){
 
                             System.out.println("Livro encontrado");
                             produtos.info();
 
+                        }else {
+
+                            System.out.println("Não encontrado");
+
                         }
+
 
                     }
 
                     break;
                 case 5:
+                    //(5) Buscar livros por preço"
 
-                    //(5) Buscar livros por preço")
                     System.out.println("-".repeat(100));
                     System.out.println("Buscar livros por preço");
 
@@ -172,8 +176,8 @@ public class Main {
 
                     break;
                 case 6:
-
                     //(6) Busca por quantidade em estoque"
+
                     System.out.println("-".repeat(100));
                     System.out.println("Buscar livros por quantidade em esoque");
 
@@ -193,6 +197,7 @@ public class Main {
 
                     break;
                 case 7:
+                    //(7) Valor total no estoque
 
                     System.out.println("-".repeat(100));
                     double valor_Total = 0;
@@ -208,6 +213,7 @@ public class Main {
 
                     break;
                 case 8:
+                    //(8) Carregar estoque
 
                     String [] SL;
                     String linha;
@@ -234,6 +240,7 @@ public class Main {
                     }
                     break;
                 case 9:
+                    //(9) Salvar log
 
                     try {
                         Path caminhoArquivo = Path.of("src/log.txt");
@@ -257,10 +264,34 @@ public class Main {
 
                     System.out.println("Você deseja salvar as altereções feitas? [Y] or [N]");
 
+                    String salvar;
+                    salvar = key.nextLine();
 
-                    System.out.println("-".repeat(100));
-                    System.out.println("Programa Finalizado");
-                    System.exit(1);
+                    if(salvar.equals("Y")){
+
+                        try {
+                            Path caminhoArquivo = Path.of("src/log.txt");
+
+                            ArrayList<String> listaStrings = new ArrayList<>();
+                            for (Produtos produtos : array_livros) {
+                                listaStrings.add(produtos.toString() + "\n");
+                            }
+
+                            Files.write(caminhoArquivo, listaStrings);
+
+                            System.out.println("Os dados foram escritos no arquivo.");
+                        } catch (FileSystemException e) {
+                            System.err.println("Ocorreu um erro ao acessar o arquivo.");
+                            e.printStackTrace();
+                        }
+
+                    }else {
+
+                        System.out.println("-".repeat(100));
+                        System.out.println("Programa Finalizado");
+                        System.exit(1);
+
+                    }
 
                     break;
                 default:
