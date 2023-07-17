@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Grafo grafo = new Grafo();
         Scanner key = new Scanner(System.in);
 
@@ -74,7 +75,6 @@ public class Main {
                 }
                 case 0 -> System.exit(1);
                 default -> System.out.println("Tente novamente");
-
             }
         }
     }

@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//compareToIgnoreCase - https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
+
 public class Main {
     public static void main(String[] args) throws Exception {
         System.out.println("Inicio do Programa");
@@ -209,7 +211,7 @@ public class Main {
                         valor_Total = valor_Total + valor;
                     }
 
-                    System.out.println("Valor total no estoque:" + valor_Total);
+                    System.out.println("Valor total no estoque:" + valor_Total);      
 
                     break;
                 case 8:

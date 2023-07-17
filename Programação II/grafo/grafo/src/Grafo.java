@@ -32,8 +32,8 @@ class Grafo {
     public void listarConexoes() {
         for (Aresta conexao : this.arestas) {
             System.out.println("Origem: " + conexao.getOrigem().getNome() +
-                    " | Destino: " + conexao.getDestino().getNome() +
-                    " | Distância: " + conexao.getDistancia());
+                               " |   Destino: " + conexao.getDestino().getNome() +
+                               " | Distância: " + conexao.getDistancia());
         }
     }
 
@@ -57,8 +57,14 @@ class Grafo {
         }
 
         for (Aresta vizinho : vizinhos) {
-            Vertice cidadeDestino = (vizinho.getOrigem() == cidadeOrigem) ? vizinho.getDestino() : vizinho.getOrigem();
+            Vertice cidadeDestino;
+            if (vizinho.getOrigem() == cidadeOrigem) {
+                cidadeDestino = vizinho.getDestino();
+            } else {
+                cidadeDestino = vizinho.getOrigem();
+            }
             System.out.println("Cidade: " + cidadeDestino.getNome() + " | Distância: " + vizinho.getDistancia());
         }
+
     }
 }
