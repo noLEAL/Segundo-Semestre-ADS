@@ -211,7 +211,7 @@ public class Main {
                         valor_Total = valor_Total + valor;
                     }
 
-                    System.out.println("Valor total no estoque:" + valor_Total);      
+                    System.out.println("Valor total no estoque:" + valor_Total);
 
                     break;
                 case 8:
