@@ -33,6 +33,9 @@ public class Main {
                 case 1 -> {
 
                     System.out.println("Digite o nome da cidade: ");
+
+                    String buffer = key.nextLine();
+
                     String nome = key.nextLine();
                     grafo.cadastrarCidade(nome);
 

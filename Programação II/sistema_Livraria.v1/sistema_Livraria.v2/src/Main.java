@@ -238,14 +238,14 @@ public class Main {
 
 
                         array_livros.add(produto);
-
                     }
+                    System.out.println("Estoque carregado");
                     break;
                 case 9:
                     //(9) Salvar log
 
                     try {
-                        Path caminhoArquivo = Path.of("src/log.txt");
+                        Path caminhoArquivo = Path.of("src/arqLivros.txt");
 
                         ArrayList<String> listaStrings = new ArrayList<>();
                         for (Produtos produtos : array_livros) {
@@ -267,6 +267,9 @@ public class Main {
                     System.out.println("Você deseja salvar as altereções feitas? [Y] or [N]");
 
                     String salvar;
+
+                    String buff1 = key.nextLine();
+
                     salvar = key.nextLine();
 
                     if(salvar.equals("Y")){

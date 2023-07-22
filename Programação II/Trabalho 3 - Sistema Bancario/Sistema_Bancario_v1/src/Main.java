@@ -16,7 +16,7 @@ public class Main {
         array_bancos.add(bancotest2);
         Pessoa clientetest1 = new Pessoa("Cliente","Test",23,"016.509.920-84" );
         array_clietes.add(clientetest1);
-        Pessoa clientetest2 = new Pessoa("Java","Coffe",79,"837.937.000-11" );
+        Pessoa clientetest2 = new Pessoa("Java","Coffe",79,"" );
         array_clietes.add(clientetest2);
         ///////////////////////////////////////////APENAS PARA TESTE///////////////////////////////////////////////////////////
         while (true){
@@ -45,7 +45,6 @@ public class Main {
                     System.out.println("-".repeat(100));
 
                     System.out.println("Cadastrar cliente:");
-
 
                     Pessoa cliente = new Pessoa();
 
@@ -113,13 +112,16 @@ public class Main {
 
                     int conta = key.nextInt();
 
+                    String buffeffr = key.nextLine();
+
+
                     if (conta == 0 ){
 
                         Conta_Corrente contaCorrente = new Conta_Corrente();
 
                         System.out.printf("Selecione Titular:%n");
                         exibirClientes(array_clietes);
-                        System.out.printf("%n");
+                        System.out.println(" ");
                         int nome = key.nextInt();
                         contaCorrente.setTitular(array_clietes.get(nome));
 
@@ -149,13 +151,14 @@ public class Main {
                         contaCorrente.Info();
 
                     }
-                    if (conta == 0 ){
+
+                    if (conta == 1 ){
 
                         Conta_Poupanca contaPolpa = new Conta_Poupanca();
 
                         System.out.printf("Selecione Titular:%n");
                         exibirClientes(array_clietes);
-                        System.out.println("%n");
+                        System.out.println(" ");
                         int nome = key.nextInt();
                         contaPolpa.setTitular(array_clietes.get(nome));
 
@@ -230,11 +233,13 @@ public class Main {
 
                 }
                 case 6 ->{
+                    /////////////////////SAQUE/////////////////////////
+
                     System.out.println("Sacar:[0]Conta Corrente x [1]Conta Poupança");
 
                     int sacConta = key.nextInt();
 
-                    int flag = 0;
+                    boolean encontrouCorrent = false;
 
                     if (sacConta == 0){
 
@@ -244,37 +249,52 @@ public class Main {
 
                         for (Conta_Corrente contaCorrente : array_corrente) {
                             if (contaCorrente.getNroConta() == numeroContaCorre) {
-                                flag = 1;
+                                encontrouCorrent = true;
                                 contaCorrente.Saque();
-
+                                break;
                             }
                         }
 
-                        if (flag == 0) {
+                        if (!encontrouCorrent) {
+                            System.out.println("Conta não encontrada");
+                        }
+                    }
+
+                    boolean encontroupoupa = false;
+
+                    if (sacConta == 1){
+
+                        System.out.println("Numero da conta poupança");
+
+                        int numeroContaCorre = key.nextInt();
+
+                        for (Conta_Poupanca contapoupanca : array_poupanca) {
+                            if (contapoupanca.getNroConta() == numeroContaCorre) {
+                                encontroupoupa = true;
+                                contapoupanca.Saque();
+                                break;
+                            }
+                        }
+
+                        if (!encontroupoupa) {
 
                             System.out.println("Conta não encontrada");
 
                         }
-
-
-                    }
-
-                    if (sacConta == 1){
-
-
-
                     }
 
                 }
                 case 7 ->{
 
+                    /////////////////////DEPOSITO/////////////////////////
+
                     System.out.println("Depositar:[0]Conta Corrente x [1]Conta Poupança");
 
-                    int sacConta = key.nextInt();
+                    int depConta = key.nextInt();
 
-                    int flag = 0;
+                    boolean metcorrent = false;
 
-                    if (sacConta == 0){
+                    if (depConta == 0){
 
                         System.out.println("Numero da conta corrente");
 
@@ -282,20 +302,22 @@ public class Main {
 
                         for (Conta_Corrente contaCorrente : array_corrente) {
                             if (contaCorrente.getNroConta() == numeroContaCorre) {
-                                flag = 1;
-                                contaCorrente.Saque();
+                                metcorrent = true;
+                                contaCorrente.Deposito();
 
                             }
                         }
 
-                        if (flag == 0) {
+                        if (!metcorrent) {
 
                             System.out.println("Conta não encontrada");
 
                         }
                     }
 
-                    if (sacConta == 1){
+                    boolean metpoup = false;
+
+                    if (depConta == 1){
 
                         System.out.println("Numero da conta poupança");
 
@@ -303,19 +325,49 @@ public class Main {
 
                         for (Conta_Poupanca Contapoup : array_poupanca) {
                             if (Contapoup.getNroConta() == numeroContapoup) {
-                                flag = 1;
-                                Contapoup.Saque();
+                                metpoup = true;
+                                Contapoup.Deposito();
 
                             }
                         }
 
-                        if (flag == 0) {
+                        if (!metpoup) {
 
                             System.out.println("Conta não encontrada");
 
                         }
 
                     }
+
+
+                }
+                case 8 ->{
+
+
+                    System.out.println("============ CONTA CORRENTE ============");
+
+                    for (Conta_Corrente conta : array_corrente) {
+                        conta.NovoMes();
+                    }
+
+                    System.out.println("Novo mês iniciado. TAXAS APLICADAS NOS SALDOS DAS CONTAS EXIXTENTES ");
+
+
+                    System.out.println("========================================");
+
+                    System.out.println("============ CONTA POUPANÇA ============");
+
+                    for (Conta_Poupanca conta : array_poupanca) {
+                        conta.NovoMes();
+                    }
+
+                    System.out.println("Novo mês iniciado. Saques restantes: RESTAURADOS");
+                    System.out.println("Rendimento mensal aplicado. APLICADO NOS SALDOS DAS CONTAS EXIXTENTES ");
+
+                    System.out.println("========================================");
+
+
+
 
 
                 }
@@ -325,9 +377,6 @@ public class Main {
 
            }
         }
-
-
-
     }
 
     public static void exibirClientes(ArrayList<Pessoa> array_clietes){

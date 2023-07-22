@@ -1,3 +1,6 @@
-3426,compiladores,2012,computação,pearson,R$135
-2631,sistemas digitais,2017,computação,liber,R$99
-9680,senhor dos aneis: a sociedade do anel,2005,fantasia,harper,R$35
+compiladores,pearson,computação,3426,2012,50,13550.0
+sistemas digitais,liber,computação,2631,2017,30,9990.0
+senhor dos aneis: a sociedade do anel,harper,fantasia,9680,2005,120,3500.0
+t1,e1,c1,123,2000,100,30.0
+t2,e1,c2,1234,2000,30,50.0
+t3,e1,c1,12345,2000,60,140.0

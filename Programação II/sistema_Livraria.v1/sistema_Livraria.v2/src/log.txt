@@ -1,4 +1,0 @@
-compiladores,pearson,computação,3426,2012,50,13550.0
-sistemas digitais,liber,computação,2631,2017,30,9990.0
-senhor dos aneis: a sociedade do anel,harper,fantasia,9680,2005,120,3500.0
-test,test,test,123,123,123,123.0

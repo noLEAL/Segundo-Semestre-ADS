@@ -1,5 +1,3 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Conta_Corrente extends Conta_Bancaria {
@@ -45,22 +43,16 @@ public class Conta_Corrente extends Conta_Bancaria {
 
         Scanner key = new Scanner(System.in);
 
-        boolean senhaCorreta = VerificaSenha();
-        if (senhaCorreta) {
-            System.out.println("Senha correta");
-            System.out.print("Valor a depositar: ");
-            double valorDeposito = key.nextDouble();
 
-            if (valorDeposito <= 0) {
-                System.out.println("Valor inválido para depósito");
-            } else {
-                setSaldo(getSaldo() + valorDeposito);
-                System.out.println("Depósito efetuado com sucesso");
-            }
+        System.out.print("Valor a depositar: ");
+        double valorDeposito = key.nextDouble();
+
+        if (valorDeposito <= 0) {
+            System.out.println("Valor inválido para depósito");
         } else {
-            System.out.println("Senha incorreta");
+            setSaldo(getSaldo() + valorDeposito);
+            System.out.println("Depósito efetuado com sucesso");
         }
-
     }
 
     public void Info(){
@@ -69,17 +61,14 @@ public class Conta_Corrente extends Conta_Bancaria {
         System.out.println("Banco:" + this.banco);
         System.out.println("Número da conta:" + this.nroConta);
         System.out.println("Saldo:" + this.saldo);
-        System.out.println("Taxa ao Mês" + this.TaxMes);
+        System.out.println("Taxa ao Mês:" + this.TaxMes);
 
     }
-    public void NovoMes(ArrayList<Conta_Corrente> array_corrente){
-        System.out.println("TAXA:" + this.TaxMes);
+    public void NovoMes(){
 
-        for(Conta_Corrente conta: array_corrente ) {
+        double taxasMensais = getTaxMes();
+        setSaldo(getSaldo() - taxasMensais);
 
-            setSaldo(getSaldo()-this.TaxMes);
-
-        }
 
     }
     /////////////////////////////////////////////////////

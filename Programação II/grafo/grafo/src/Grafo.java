@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;  //https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html
 import java.util.List;
 
 class Grafo {
@@ -12,7 +11,9 @@ class Grafo {
     }
 
     public void cadastrarCidade(String nome) {
+
         Vertice cidade = new Vertice(nome);
+
         this.vertices.add(cidade);
     }
 
@@ -22,7 +23,21 @@ class Grafo {
     }
 
     public void listarCidades() {
-        Collections.sort(vertices, (v1, v2) -> v1.getNome().compareTo(v2.getNome())); //Criterio alfabetico para ordenar por nome (LAMBADA)
+        //selection para ordenar em ordem alfabetica
+        int n = vertices.size();
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (vertices.get(j).getNome().compareToIgnoreCase(vertices.get(minIndex).getNome()) < 0) {
+                    minIndex = j;
+                }
+            }
+            if (minIndex != i) {
+                Vertice temp = vertices.get(i);
+                vertices.set(i, vertices.get(minIndex));
+                vertices.set(minIndex, temp);
+            }
+        }
         for (int i = 0; i < vertices.size(); i++) {
             Vertice cidade = vertices.get(i);
             System.out.printf("[%s] -> %s \n",i,cidade.getNome());
@@ -30,6 +45,20 @@ class Grafo {
     }
 
     public void listarConexoes() {
+        int n = arestas.size();
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arestas.get(j).getDistancia() < arestas.get(minIndex).getDistancia()) {
+                    minIndex = j;
+                }
+            }
+            if (minIndex != i) {
+                Aresta temp = arestas.get(i);
+                arestas.set(i, arestas.get(minIndex));
+                arestas.set(minIndex, temp);
+            }
+        }
         for (Aresta conexao : this.arestas) {
             System.out.println("Origem: " + conexao.getOrigem().getNome() +
                                " |   Destino: " + conexao.getDestino().getNome() +
@@ -53,7 +82,7 @@ class Grafo {
                 vizinhos.set(j + 1, vizinhos.get(j));
                 j--;
             }
-            vizinhos.set(j + 1, chave);
+            vizinhos.set(j + 1, chave); //setposi
         }
 
         for (Aresta vizinho : vizinhos) {

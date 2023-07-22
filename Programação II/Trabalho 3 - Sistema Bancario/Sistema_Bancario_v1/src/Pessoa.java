@@ -22,7 +22,7 @@ public class Pessoa  {
     public void Info(ArrayList<Conta_Corrente> array_corrente, ArrayList<Conta_Poupanca> array_poupanca){
 
         System.out.println("=".repeat(100));
-        System.out.println("Titular:" + this.getNome() + this.getSobrenome());
+        System.out.printf("Titular:%s %s\n" , this.getNome(), this.getSobrenome());
         System.out.println("Idade:" + this.getIdade());
         System.out.println("CPF:" + this.getCpf());
         if (this.getContasBancarias().size() > 0) {
@@ -96,7 +96,7 @@ public class Pessoa  {
     }
     @Override
     public String toString() {
-        return nome + sobrenome;
+        return nome + " " + sobrenome;
     }
 }
 

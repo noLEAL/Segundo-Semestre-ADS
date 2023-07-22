@@ -4,7 +4,8 @@ public class Conta_Poupanca extends Conta_Bancaria{
 
     Scanner key = new Scanner(System.in);
 
-    private double rendimento;
+    private double rendimento = 0.5;
+
     private int SaqueMes;
 
     public Conta_Poupanca(Pessoa titular, Banco banco, int nroConta, double saldo, String senha, double rendimento, int saqueMes) {
@@ -25,12 +26,18 @@ public class Conta_Poupanca extends Conta_Bancaria{
         System.out.println("Saldo:" + this.saldo);
         System.out.println("Saques restantes:" + this.SaqueMes);
         System.out.println("Rendimento mensal (%):" + this.rendimento );
-        System.out.println("Variação poupança:" );
+        //System.out.println("Variação poupança:" );
     }
 
     public void NovoMes(){
 
+        double rendimentoMensal = getSaldo() * (getRendimento() / 100);
+        setSaldo(getSaldo() + rendimentoMensal);
+
+        setSaqueMes(3);
+
     }
+
     public void Saque(){
 
         if (getSaqueMes() <= 0) {
@@ -46,12 +53,13 @@ public class Conta_Poupanca extends Conta_Bancaria{
             System.out.print("Valor a Sacar:");
             double valorSaque = key.nextDouble();
 
-            if (valorSaque > getSaldo()){
+            if (valorSaque > getSaldo() || getSaqueMes() <= 0) {
 
-                System.out.println("Saldo insuficiente");
+                System.out.println("Saldo insuficiente ou limite de saque atingido");
 
             }else {
 
+                setSaqueMes(getSaqueMes() - 1);
                 setSaldo(getSaldo()-valorSaque);
                 System.out.println("Saque efetuado com sucesso");
 
@@ -64,24 +72,17 @@ public class Conta_Poupanca extends Conta_Bancaria{
     }
     public void Deposito(){
 
-        Scanner key = new Scanner(System.in);
+    Scanner key = new Scanner(System.in);
 
-        boolean senhaCorreta = VerificaSenha();
-        if (senhaCorreta) {
-            System.out.println("Senha correta");
-            System.out.print("Valor a depositar: ");
-            double valorDeposito = key.nextDouble();
+        System.out.print("Valor a depositar: ");
+        double valorDeposito = key.nextDouble();
 
-            if (valorDeposito <= 0) {
-                System.out.println("Valor inválido para depósito");
-            } else {
-                setSaldo(getSaldo() + valorDeposito);
-                System.out.println("Depósito efetuado com sucesso");
-            }
+        if (valorDeposito <= 0) {
+            System.out.println("Valor inválido para depósito");
         } else {
-            System.out.println("Senha incorreta");
+            setSaldo(getSaldo() + valorDeposito);
+            System.out.println("Depósito efetuado com sucesso");
         }
-
     }
 
     /////////////////////////////////////////////////
@@ -101,4 +102,6 @@ public class Conta_Poupanca extends Conta_Bancaria{
     public void setSaqueMes(int saqueMes) {
         SaqueMes = saqueMes;
     }
+
+
 }
